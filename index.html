@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bicentenario de la Obstetricia en el Perú · 1826 — 2026</title>
+<meta name="description" content="Landing conmemorativa: 200 años de Historia, Ciencia y Vida. Homenaje a la Obstetra Peruana en el Bicentenario 1826-2026." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700;800&family=Pinyon+Script&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        vino: { 950:'#2B060E', 900:'#4A0A16', 800:'#5C0A18', 700:'#7A1226', 600:'#962032', 500:'#B83A4E' },
+        marino: { 950:'#060D1E', 900:'#0A1931', 800:'#0B1E3B', 700:'#132D57', 600:'#1E3E73' },
+        dorado: { 100:'#FBF0D8', 200:'#F5E0B3', 300:'#EACD8B', 400:'#DDB966', 500:'#D4AF6A', 600:'#B8934E', 700:'#8F713A' },
+        crema: '#FFF9F0',
+        perla: '#F6F1E8'
+      },
+      fontFamily: {
+        serif: ['"Cormorant Garamond"','serif'],
+        sans: ['Montserrat','sans-serif'],
+        script: ['"Pinyon Script"','cursive']
+      },
+      boxShadow: {
+        'oro': '0 20px 60px -15px rgba(212,175,106,.45)',
+        'vino-xl': '0 30px 80px -20px rgba(92,10,24,.6)',
+        'flotante': '0 35px 70px -20px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.08) inset'
+      }
+    }
+  }
+}
+</script>
+<style>
+  :root{ --oro:#D4AF6A; --vino:#5C0A18; --marino:#0A1931; }
+  html{ background:#060D1E; }
+  body{ background:#060D1E; overflow-x:hidden; }
+  ::selection{ background:#D4AF6A; color:#2B060E; }
+  ::-webkit-scrollbar{ width:11px } ::-webkit-scrollbar-track{ background:#060D1E }
+  ::-webkit-scrollbar-thumb{ background:linear-gradient(#7A1226,#D4AF6A); border-radius:99px; border:2px solid #060D1E }
+
+  .grano::after{
+    content:""; position:absolute; inset:0; pointer-events:none; opacity:.09; mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .texto-oro-grad{
+    background:linear-gradient(105deg,#FBF0D8 0%,#EACD8B 22%,#D4AF6A 42%,#FFF7DF 50%,#D4AF6A 58%,#B8934E 80%,#FBF0D8 100%);
+    background-size:200% auto; -webkit-background-clip:text; background-clip:text; color:transparent;
+    animation:brilloOro 6s linear infinite;
+  }
+  @keyframes brilloOro{ to{ background-position:200% center } }
+
+  .glass{ background:rgba(255,255,255,.07); backdrop-filter:blur(18px) saturate(140%); -webkit-backdrop-filter:blur(18px) saturate(140%); border:1px solid rgba(255,255,255,.14); }
+  .glass-oro{ background:linear-gradient(135deg,rgba(212,175,106,.18),rgba(255,255,255,.06) 40%,rgba(92,10,24,.25)); backdrop-filter:blur(20px); border:1px solid rgba(212,175,106,.35); }
+
+  .btn-3d{
+    position:relative; transform-style:preserve-3d; transition:transform .35s cubic-bezier(.2,.9,.3,1.4), box-shadow .35s;
+    box-shadow:0 1px 0 rgba(255,255,255,.5) inset, 0 -3px 0 rgba(0,0,0,.25) inset, 0 18px 40px -12px rgba(212,175,106,.55), 0 10px 30px -10px rgba(122,18,38,.7);
+  }
+  .btn-3d:hover{ transform:translateY(-3px) scale(1.02); box-shadow:0 2px 0 rgba(255,255,255,.6) inset, 0 -4px 0 rgba(0,0,0,.2) inset, 0 28px 60px -12px rgba(212,175,106,.7), 0 18px 40px -10px rgba(122,18,38,.8); }
+  .btn-3d:active{ transform:translateY(1px) scale(.99); }
+
+  .card-25d{ transform-style:preserve-3d; will-change:transform; transition:box-shadow .4s; }
+  .card-25d .capa-frente{ transform:translateZ(45px); }
+  .card-25d .capa-media{ transform:translateZ(22px); }
+  .card-25d .sombra-suelo{ position:absolute; left:10%; right:10%; bottom:-18px; height:28px; background:radial-gradient(ellipse at center, rgba(0,0,0,.5), transparent 70%); filter:blur(8px); transform:translateZ(-40px); }
+
+  .marquesina{ display:flex; width:max-content; animation:marq 28s linear infinite; }
+  @keyframes marq{ to{ transform:translateX(-50%) } }
+  @keyframes flotar{ 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-16px) } }
+  @keyframes flotar2{ 0%,100%{ transform:translateY(0) rotate(-1deg)} 50%{ transform:translateY(-26px) rotate(1.5deg)} }
+  @keyframes latido{ 0%,100%{ transform:scale(1); opacity:.9 } 50%{ transform:scale(1.12); opacity:1 } }
+  @keyframes spinLento{ to{ transform:rotate(360deg)} }
+  .anim-flotar{ animation:flotar 6s ease-in-out infinite }
+  .anim-flotar2{ animation:flotar2 8s ease-in-out infinite }
+
+  .linea-tiempo::before{
+    content:""; position:absolute; left:19px; top:0; bottom:0; width:2px;
+    background:rgba(212,175,106,.18);
+  }
+  @media(min-width:768px){ .linea-tiempo::before{ left:50%; transform:translateX(-50%) } }
+  #progresoLinea{ position:absolute; left:19px; top:0; width:2px; background:linear-gradient(#EACD8B,#7A1226,#D4AF6A); box-shadow:0 0 18px rgba(212,175,106,.8); }
+  @media(min-width:768px){ #progresoLinea{ left:50%; transform:translateX(-50%) } }
+
+  .marco-oro{
+    background:radial-gradient(120% 120% at 50% 0%, rgba(212,175,106,.18), transparent 55%),
+               linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.02));
+    border:1px solid rgba(212,175,106,.28);
+    box-shadow:0 40px 100px -30px rgba(0,0,0,.8), 0 0 80px -20px rgba(212,175,106,.35), inset 0 1px 0 rgba(255,255,255,.25);
+  }
+
+  .trazo-dorado{ -webkit-text-stroke:1px rgba(212,175,106,.55); color:transparent; }
+  .separador-oro{ background:linear-gradient(90deg,transparent,#D4AF6A 30%,#FFF0C8 50%,#D4AF6A 70%,transparent); height:1px }
+  .chip{ letter-spacing:.28em }
+  details summary::-webkit-details-marker{ display:none }
+  /* ===== Base responsive / sobria ===== */
+  html{ -webkit-text-size-adjust:100% }
+  body{ overflow-x:clip }
+  img{ max-width:100% }
+  #piezaHero{ touch-action:pan-y; user-select:none; -webkit-user-select:none }
+  section[id], footer[id]{ scroll-margin-top:96px }
+  .icono-linea{ width:52px; height:52px; border-radius:1rem; display:grid; place-items:center; flex:none }
+  #nav{ transition:transform .35s ease }
+  #nav.nav-oculta{ transform:translateY(-115%) }
+  .faq-icon{ transition:transform .3s ease }
+  .faq[open] .faq-icon{ transform:rotate(45deg) }
+  @media (max-width:640px){
+    .chip{ letter-spacing:.16em }
+    #gigante200{ font-size:52vw !important; opacity:.22 }
+    .capa-flotante{ transform:scale(.88); transform-origin:center }
+    .linea-tiempo::before{ left:15px }
+    #progresoLinea{ left:15px !important }
+  }
+  @media (prefers-reduced-motion:reduce){
+    .marquesina, .anim-flotar, .anim-flotar2{ animation:none !important }
+  }
+</style>
+</head>
+
+<body class="font-sans text-white antialiased selection:bg-dorado-500">
+
+<!-- FONDO GLOBAL -->
+<div class="fixed inset-0 -z-10 pointer-events-none">
+  <div class="absolute inset-0" style="background:radial-gradient(90% 60% at 50% -10%, #7A1226 0%, #2B060E 38%, #060D1E 68%, #060D1E 100%)"></div>
+  <div class="absolute inset-0 opacity-60" style="background:radial-gradient(50% 35% at 85% 15%, rgba(30,62,115,.55), transparent 70%), radial-gradient(45% 35% at 8% 25%, rgba(184,58,78,.35), transparent 70%)"></div>
+  <canvas id="estrellas" class="absolute inset-0 w-full h-full opacity-70"></canvas>
+</div>
+
+<!-- NAV -->
+<header id="nav" class="fixed top-0 inset-x-0 z-50 transition-all duration-500">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <div class="glass mt-4 rounded-2xl px-4 md:px-6 py-3 flex items-center justify-between shadow-flotante">
+      <a href="#inicio" class="flex items-center gap-2.5 sm:gap-3 group min-w-0">
+        <span class="relative grid place-items-center w-10 h-10 sm:w-11 sm:h-11 flex-none rounded-xl bg-gradient-to-br from-vino-700 via-vino-900 to-marino-900 border border-dorado-500/40 shadow-oro">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7.5-4.6-9.5-9.2C1 8.5 3 5 6.5 5c2 0 3.5 1.1 4.2 2.3h2.6C14 6.1 15.5 5 17.5 5 21 5 23 8.5 21.5 11.8 19.5 16.4 12 21 12 21Z" fill="#D4AF6A" opacity=".95"/><circle cx="12" cy="11" r="2.2" fill="#4A0A16"/></svg>
+          <span class="absolute -top-1 -right-1 text-[10px] font-bold bg-dorado-500 text-vino-950 rounded-full px-1.5 py-0.5 shadow">200</span>
+        </span>
+        <span class="leading-tight min-w-0">
+          <span class="block text-[10px] sm:text-[11px] tracking-[.22em] sm:tracking-[.3em] text-dorado-300 font-semibold truncate">PERÚ · 1826 — 2026</span>
+          <span class="block font-serif text-base sm:text-lg md:text-xl font-semibold truncate">Bicentenario <span class="italic text-dorado-200">Obstetricia</span></span>
+        </span>
+      </a>
+      <nav class="hidden lg:flex items-center gap-7 text-[13px] tracking-[.18em] font-medium text-white/80">
+        <a href="#historia" class="hover:text-dorado-300 transition">HISTORIA</a>
+        <a href="#pilares" class="hover:text-dorado-300 transition">PILARES</a>
+        <a href="#linea" class="hover:text-dorado-300 transition">LÍNEA 200 AÑOS</a>
+        <a href="#homenaje" class="hover:text-dorado-300 transition">HOMENAJE</a>
+        <a href="#beneficio" class="hover:text-dorado-300 transition">BENEFICIO</a>
+      </nav>
+      <div class="flex items-center gap-2.5">
+        <a href="#beneficio" class="btn-3d lg:hidden inline-flex items-center gap-1.5 rounded-xl px-4 py-2.5 text-xs font-bold text-vino-950 bg-gradient-to-b from-dorado-100 via-dorado-400 to-dorado-600">
+          <span>Beneficio</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#homenaje" class="btn-3d hidden lg:inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-bold text-vino-950 bg-gradient-to-b from-dorado-100 via-dorado-400 to-dorado-600">
+          <span>10 de Octubre</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="inicio" class="relative min-h-screen pt-32 md:pt-40 pb-16 overflow-hidden grano">
+  <!-- Número gigante 200 -->
+  <div class="absolute inset-0 flex items-start justify-center pt-24 pointer-events-none select-none" aria-hidden="true">
+    <span id="gigante200" class="font-serif font-bold leading-none trazo-dorado opacity-30 text-[38vw] md:text-[26vw]" style="text-shadow:0 0 120px rgba(212,175,106,.15)">200</span>
+  </div>
+  <!-- Halos -->
+  <div id="halo1" class="absolute -left-40 top-1/3 w-[520px] h-[520px] rounded-full blur-3xl opacity-40 pointer-events-none" style="background:radial-gradient(circle,#962032,transparent 70%)"></div>
+  <div id="halo2" class="absolute -right-40 top-16 w-[560px] h-[560px] rounded-full blur-3xl opacity-40 pointer-events-none" style="background:radial-gradient(circle,#1E3E73,transparent 70%)"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-5 md:px-8 grid lg:grid-cols-[1.05fr_.95fr] gap-10 lg:gap-12 items-center relative">
+    <!-- Texto -->
+    <div class="relative z-10 text-center lg:text-left">
+      <p id="qrOrigen" class="hidden mb-4 text-[11px] sm:text-xs tracking-[.2em] text-dorado-100 glass rounded-full px-4 py-2 w-fit mx-auto lg:mx-0">LLEGASTE DESDE EL QR · <span id="qrFuente" class="font-bold">AFICHE OFICIAL</span></p>
+      <div data-hero class="inline-flex max-w-full flex-wrap items-center justify-center gap-2 sm:gap-3 glass-oro rounded-2xl sm:rounded-full pl-2 pr-4 sm:pr-5 py-1.5 shadow-oro">
+        <span class="bg-gradient-to-b from-dorado-200 to-dorado-600 text-vino-950 text-[11px] sm:text-xs font-extrabold tracking-widest rounded-full px-3 py-1.5">1826 · 2026</span>
+        <span class="chip text-[10px] sm:text-xs text-dorado-100 font-medium">DÍA NACIONAL DE LA OBSTETRA PERUANA — 10 OCT</span>
+      </div>
+
+      <p data-hero class="font-script text-2xl sm:text-3xl md:text-4xl text-dorado-200 mt-5 sm:mt-6 -rotate-2">Dos siglos cuidando la vida</p>
+      <h1 data-hero class="font-serif font-semibold leading-[1.02] mt-2 text-4xl sm:text-5xl md:text-7xl xl:text-[5.2rem]">
+        200 Años de<br>
+        <span class="italic font-medium">Historia, Ciencia</span><br>
+        <span class="texto-oro-grad font-bold">y Vida.</span>
+      </h1>
+      <p data-hero class="mt-4 font-serif italic text-lg sm:text-xl md:text-2xl text-white/80">Bicentenario de la Obstetricia en el Perú <span class="not-italic font-sans font-bold text-dorado-300 text-sm sm:text-base md:text-lg tracking-widest"> (1826 — 2026)</span></p>
+      <p data-hero class="mt-5 max-w-xl mx-auto lg:mx-0 text-[15px] sm:text-base text-white/70 leading-relaxed font-light">Homenaje a la labor de la obstetra en la protección de la madre y el nacimiento. Desde la Casa de la Maternidad hasta la primera línea de la salud materna de hoy: arte, amor, ciencia y comunidad.</p>
+
+      <div data-hero class="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4">
+        <a href="#historia" class="btn-3d glass rounded-2xl px-6 sm:px-7 py-4 font-bold tracking-wide hidden sm:flex items-center justify-center gap-3 border border-white/20 min-h-[56px]">
+          <span class="grid place-items-center w-10 h-10 flex-none rounded-xl bg-gradient-to-b from-dorado-200 to-dorado-600 text-vino-950 shadow-oro">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </span>
+          <span class="text-left leading-tight"><span class="block text-[11px] sm:text-xs font-medium text-dorado-200 tracking-[.22em]">DESCUBRIR EL HITO</span><span class="block text-[15px] sm:text-base">Revive 1826 en 2.5D</span></span>
+        </a>
+        <a href="#beneficio" class="btn-3d rounded-2xl px-6 sm:px-7 py-4 font-bold bg-gradient-to-b from-dorado-100 via-dorado-400 to-dorado-600 text-vino-950 text-center min-h-[56px] flex items-center justify-center">Reclamar mi beneficio →</a>
+        <a data-hero href="#historia" class="sm:hidden text-sm text-dorado-200 underline underline-offset-4 -mt-1">o revive el hito de 1826</a>
+      </div>
+
+      <p data-hero id="cuentaLinea" class="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-x-2.5 gap-y-1 glass rounded-full px-5 py-2.5 text-xs sm:text-sm text-white/75 w-fit mx-auto lg:mx-0">
+        <span class="text-dorado-300 font-semibold tracking-[.18em] text-[10px] sm:text-[11px]">10 OCT 2026 · FALTAN</span>
+        <span><strong id="cdD" class="font-serif text-base sm:text-lg text-dorado-200">—</strong> días</span>
+        <span><strong id="cdH" class="font-serif text-base sm:text-lg text-dorado-200">—</strong> h</span>
+        <span><strong id="cdM" class="font-serif text-base sm:text-lg text-dorado-200">—</strong> min</span>
+        <span><strong id="cdS" class="font-serif text-base sm:text-lg text-dorado-200">—</strong> s</span>
+      </p>
+
+      <!-- Contadores -->
+      <div data-hero class="mt-8 sm:mt-10 grid grid-cols-3 max-w-lg mx-auto lg:mx-0 gap-2 sm:gap-3">
+        <div class="glass rounded-2xl p-3 sm:p-4 text-center shadow-2xl"><p class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-dorado-300"><span class="contador" data-meta="200">0</span></p><p class="text-[9px] sm:text-[11px] tracking-[.14em] sm:tracking-[.2em] text-white/60 mt-1">AÑOS DE HISTORIA</p></div>
+        <div class="glass rounded-2xl p-3 sm:p-4 text-center shadow-2xl"><p class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-dorado-300"><span class="contador" data-meta="1">0</span>°</p><p class="text-[9px] sm:text-[11px] tracking-[.14em] sm:tracking-[.2em] text-white/60 mt-1">CASA MATERNIDAD</p></div>
+        <div class="glass rounded-2xl p-3 sm:p-4 text-center shadow-2xl"><p class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-dorado-300"><span class="contador" data-meta="4">0</span></p><p class="text-[9px] sm:text-[11px] tracking-[.14em] sm:tracking-[.2em] text-white/60 mt-1">PILARES VIVOS</p></div>
+      </div>
+    </div>
+
+    <!-- PIEZA INTERACTIVA HERO -->
+    <div class="relative z-10 w-full min-w-0 mt-2 lg:mt-0" id="bloque3d">
+      <div class="absolute -inset-4 sm:-inset-6 rounded-[2rem] opacity-60 blur-2xl pointer-events-none" style="background:linear-gradient(135deg,rgba(150,32,50,.5),rgba(212,175,106,.35),rgba(30,62,115,.5))"></div>
+
+      <div data-tilt class="card-25d marco-oro relative rounded-[1.4rem] sm:rounded-[1.8rem] overflow-hidden shadow-flotante">
+        <div class="flex items-center gap-3 px-4 sm:px-5 py-3 border-b border-white/10 bg-black/20 backdrop-blur-xl relative z-10">
+          <div class="flex items-center gap-1.5 flex-none">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#ff5f57]"></span><span class="w-2.5 h-2.5 rounded-full bg-[#febc2e]"></span><span class="w-2.5 h-2.5 rounded-full bg-[#28c840]"></span>
+          </div>
+          <p class="text-[10px] sm:text-[11px] tracking-[.18em] sm:tracking-[.3em] text-dorado-200 truncate">EL PRIMER LATIDO · TOCA Y MANTÉN</p>
+          <span class="hidden sm:inline flex-none text-[11px] px-2.5 py-1 rounded-full bg-dorado-500/20 border border-dorado-500/40 text-dorado-200">200 AÑOS</span>
+        </div>
+
+        <!-- Pieza interactiva gratuita: medallón 200 años (CSS + GSAP, sin 3D de paga) -->
+        <div id="piezaHero" class="relative h-[360px] sm:h-[440px] md:h-[520px] overflow-hidden cursor-pointer" style="background:radial-gradient(80% 70% at 50% 20%,#3a0d18,#060D1E 70%)">
+          <div class="absolute inset-0 grid place-items-center">
+            <div id="corazonWrap" class="relative grid place-items-center w-60 h-60 sm:w-80 sm:h-80" data-depth="0.05">
+              <span class="absolute inset-6 sm:inset-8 rounded-full blur-2xl opacity-60 pointer-events-none" style="background:radial-gradient(circle,rgba(212,175,106,.45),transparent 70%); animation:latido 2.4s ease-in-out infinite"></span>
+              <div id="ondas" class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+              <button id="btnLatido" aria-label="Toca el corazón para sentir el latido. Mantenlo presionado para recibir una vida." class="relative rounded-full p-[3px] shadow-oro focus:outline-none focus-visible:ring-2 focus-visible:ring-dorado-300">
+                <span class="block rounded-full px-10 py-9 sm:px-14 sm:py-12 pointer-events-none" style="background:radial-gradient(circle at 35% 28%,#6d1220,#2B060E 72%)">
+                  <svg id="corazon" width="72" height="72" viewBox="0 0 24 24" fill="none" class="sm:w-24 sm:h-24 will-change-transform"><path d="M12 20.5C7.2 16.6 3.5 13.3 3.5 9.6 3.5 7 5.5 5 8 5c1.6 0 3.1.8 4 2.1C13 5.8 14.4 5 16 5c2.5 0 4.5 2 4.5 4.6 0 3.7-3.7 7-8.5 10.9Z" fill="url(#oroGrad)" stroke="#FBF0D8" stroke-width=".8"/><defs><linearGradient id="oroGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FBF0D8"/><stop offset=".5" stop-color="#D4AF6A"/><stop offset="1" stop-color="#B8934E"/></linearGradient></defs></svg>
+                  <span class="block mt-1 text-[10px] sm:text-xs tracking-[.4em] text-dorado-200">TOCA Y MANTÉN</span>
+                </span>
+              </button>
+              <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 w-44 sm:w-56 pointer-events-none">
+                <span class="block h-1 rounded-full bg-white/10 overflow-hidden"><span id="barraRecibir" class="block h-full w-0 rounded-full" style="background:linear-gradient(90deg,#B83A4E,#EACD8B)"></span></span>
+              </span>
+            </div>
+          </div>
+          <span class="absolute top-[15%] left-[8%] glass rounded-full px-3 py-1.5 text-[10px] sm:text-[11px] tracking-[.2em] text-dorado-200 anim-flotar hidden sm:block" data-depth="0.12">CIENCIA</span>
+          <span class="absolute top-[30%] right-[6%] glass rounded-full px-3 py-1.5 text-[10px] sm:text-[11px] tracking-[.2em] text-dorado-200 anim-flotar2 hidden sm:block" data-depth="0.1">ARTE · AMOR</span>
+          <span class="absolute bottom-[26%] left-[10%] glass rounded-full px-3 py-1.5 text-[10px] sm:text-[11px] tracking-[.2em] text-dorado-200 anim-flotar2 hidden sm:block" data-depth="0.11">SERVICIO</span>
+          <p class="absolute top-3 inset-x-0 text-center text-[10px] sm:text-[11px] tracking-[.22em] text-dorado-200 pointer-events-none">LATIDOS DEL BICENTENARIO · <span id="numLatidos" class="font-serif text-base sm:text-lg font-bold">0</span></p>
+          <p id="datoLatido" aria-live="polite" class="absolute bottom-[74px] sm:bottom-[80px] inset-x-6 text-center text-xs sm:text-sm text-white/70 italic font-serif pointer-events-none">Toca el corazón: cada latido celebra una vida recibida.</p>
+          <div class="absolute bottom-3 sm:bottom-4 inset-x-3 sm:inset-x-4 glass rounded-2xl px-4 py-2.5 sm:py-3 text-[11px] sm:text-xs pointer-events-none flex items-center justify-between gap-2">
+            <span class="text-white/70 truncate">Toca para latir · mantén 3 segundos para recibir una vida</span>
+            <span class="flex-none text-dorado-200 tracking-widest">140 LPM</span>
+          </div>
+        </div>
+        <div class="sombra-suelo"></div>
+      </div>
+
+      <!-- Tarjetas flotantes sobre el 3D -->
+      <div data-flota class="capa-flotante absolute left-2 sm:-left-4 md:-left-10 top-14 sm:top-16 glass-oro rounded-2xl px-3 sm:px-4 py-2.5 sm:py-3 shadow-2xl backdrop-blur-xl max-w-[180px] sm:max-w-[210px]">
+        <p class="font-script text-xl sm:text-2xl text-dorado-100 leading-none">Benita Paulina</p>
+        <p class="text-[10px] sm:text-[11px] tracking-[.14em] sm:tracking-[.18em] mt-1 text-white/75">CADEAU DE FESSEL · FUNDADORA 1826</p>
+      </div>
+      <div data-flota class="capa-flotante absolute right-2 sm:-right-3 md:-right-8 bottom-20 glass rounded-2xl px-3 sm:px-4 py-2.5 sm:py-3 shadow-2xl flex items-center gap-2.5 sm:gap-3">
+        <span class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl grid place-items-center bg-gradient-to-b from-dorado-200 to-dorado-600 text-vino-950 flex-none" style="animation:latido 2.2s infinite">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 20.5C7.2 16.6 3.5 13.3 3.5 9.6 3.5 7 5.5 5 8 5c1.6 0 3.1.8 4 2.1C13 5.8 14.4 5 16 5c2.5 0 4.5 2 4.5 4.6 0 3.7-3.7 7-8.5 10.9Z" fill="currentColor"/></svg>
+        </span>
+        <span class="leading-tight"><span class="block font-serif text-lg sm:text-xl font-bold">10 Oct</span><span class="block text-[10px] sm:text-[11px] tracking-[.18em] sm:tracking-[.2em] text-white/60">DÍA NACIONAL</span></span>
+      </div>
+      <div data-flota class="capa-flotante absolute left-3 sm:left-8 -bottom-5 sm:-bottom-6 glass rounded-full pl-1.5 pr-4 sm:pr-5 py-1.5 hidden sm:flex items-center gap-2 shadow-2xl max-w-[calc(100%-1.5rem)]">
+        <span class="text-[11px] sm:text-xs bg-vino-700 border border-dorado-500/40 rounded-full px-2.5 py-1 font-bold tracking-widest whitespace-nowrap">DECRETO N° 110</span>
+        <span class="text-[11px] sm:text-xs text-white/70 truncate">Santa Cruz · 1826</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Marquesina -->
+  <div class="mt-16 border-y border-dorado-500/25 bg-black/30 backdrop-blur-xl overflow-hidden py-3 relative z-10">
+    <div class="marquesina gap-10 text-[12px] tracking-[.35em] text-dorado-200 font-medium">
+      <span class="flex gap-10 pr-10" id="marqA"></span><span class="flex gap-10 pr-10" id="marqB"></span>
+    </div>
+  </div>
+
+  <!-- Scroll hint -->
+  <div class="flex justify-center mt-8 relative z-10">
+    <div class="flex flex-col items-center gap-2 text-white/50 text-[11px] tracking-[.35em]">DESLIZA<span class="block w-[22px] h-[36px] rounded-full border border-white/30 relative overflow-hidden"><span id="rueda" class="absolute left-1/2 top-1 w-1 h-2 -ml-0.5 rounded-full bg-dorado-400"></span></span></div>
+  </div>
+</section>
+
+<!-- ============ HISTORIA 1826 ============ -->
+<section id="historia" class="relative py-16 sm:py-24 md:py-32 grano overflow-hidden">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <div class="text-center max-w-3xl mx-auto reveal">
+      <p class="chip text-dorado-400 text-xs font-bold">01 — EL HITO FUNDACIONAL</p>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-6xl font-semibold mt-3">El Hito de <span class="texto-oro-grad font-bold">1826</span></h2>
+      <p class="font-script text-2xl sm:text-3xl text-dorado-200 mt-2">cuando nacer dejó de ser un riesgo en soledad</p>
+      <div class="separador-oro w-56 mx-auto mt-6"></div>
+      <p class="text-white/65 mt-6 font-light leading-relaxed">Bajo el gobierno del Mariscal <strong class="text-white font-medium">Andrés de Santa Cruz</strong>, el Estado peruano reconoce por primera vez la necesidad de formar parteras científicas y proteger a la madre pobre. Nace la obstetricia institucional del Perú.</p>
+    </div>
+
+    <div class="mt-14 grid md:grid-cols-3 gap-7 md:gap-6 lg:gap-8" style="perspective:1400px">
+      <!-- Card 1 -->
+      <article data-tilt class="card-25d reveal group relative rounded-[1.6rem] overflow-hidden shadow-flotante border border-white/10 bg-gradient-to-b from-white/[.09] to-white/[.02] backdrop-blur-xl">
+        <div class="h-44 relative overflow-hidden">
+          <div class="absolute inset-0" style="background:linear-gradient(135deg,#7A1226,#2B060E 60%), radial-gradient(60% 80% at 80% 20%, rgba(212,175,106,.5), transparent)"></div>
+          <span class="capa-frente absolute top-4 left-4 text-[11px] font-bold tracking-[.25em] bg-black/40 border border-dorado-500/40 text-dorado-200 rounded-full px-3 py-1.5 backdrop-blur">10 · OCTUBRE · 1826</span>
+          <span class="absolute -bottom-6 -right-2 font-serif font-bold text-[7rem] leading-none text-white/10 select-none">110</span>
+          <div class="capa-frente absolute bottom-4 left-5 flex items-center gap-3">
+            <span class="icono-linea bg-gradient-to-b from-dorado-200 to-dorado-600 text-vino-950 shadow-oro">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M5 7h14M7 7l-3 6a3.5 3.5 0 0 0 6 0L7 7Zm10 0l-3 6a3.5 3.5 0 0 0 6 0l-3-6ZM8 21h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <p class="font-serif italic text-xl text-dorado-100">El Decreto</p>
+          </div>
+        </div>
+        <div class="p-6 md:p-7">
+          <h3 class="capa-media font-serif text-2xl font-semibold">Decreto N° 110</h3>
+          <p class="capa-media text-white/65 text-sm leading-relaxed mt-3 font-light">El gobierno de <strong class="text-dorado-200">Andrés de Santa Cruz</strong> ordena la creación de la <strong class="text-white">Casa de la Maternidad</strong> y de la primera escuela de partos. Por primera vez, el Estado asume la salud de la madre como causa pública.</p>
+          <div class="mt-5 flex items-center gap-2 text-xs tracking-[.2em] text-dorado-300">LEER EL ESPÍRITU DEL DECRETO <span class="group-hover:translate-x-1 transition">→</span></div>
+        </div>
+        <div class="sombra-suelo"></div>
+      </article>
+
+      <!-- Card 2 destacada · RETRATO FORMAL -->
+      <article data-tilt class="card-25d reveal group relative rounded-[1.6rem] overflow-hidden shadow-vino-xl border border-dorado-500/40 md:-translate-y-4" style="background:linear-gradient(180deg,#4A0A16,#1a060d 70%)">
+        <div class="absolute inset-x-0 top-0 h-1 z-20" style="background:linear-gradient(90deg,transparent,#EACD8B,transparent)"></div>
+        <!-- Retrato elegante estilo museo -->
+        <div class="relative pt-8 pb-2 px-6 overflow-hidden">
+          <div class="absolute inset-0" style="background:radial-gradient(70% 60% at 50% 0%, #B83A4E 0%, #5C0A18 55%, #1a060d 100%)"></div>
+          <div class="absolute left-1/2 top-10 -translate-x-1/2 w-64 h-64 rounded-full blur-3xl opacity-50 pointer-events-none" style="background:radial-gradient(circle,rgba(234,205,139,.55),transparent 70%)"></div>
+          <span class="absolute top-4 right-4 z-20 text-[11px] font-bold tracking-[.2em] bg-dorado-500 text-vino-950 rounded-full px-3 py-1.5 shadow-oro">★ FUNDADORA</span>
+          <span class="absolute top-4 left-4 z-20 text-[10px] font-bold tracking-[.22em] bg-black/45 border border-dorado-500/40 text-dorado-200 rounded-full px-3 py-1.5 backdrop-blur">1826 · LIMA</span>
+
+          <figure class="capa-frente relative z-10 mx-auto w-fit">
+            <!-- Doble marco dorado estilo retrato -->
+            <div class="relative p-[5px] rounded-t-[10rem] rounded-b-[1.4rem] shadow-oro" style="background:conic-gradient(from 180deg,#FBF0D8,#B8934E,#EACD8B,#7A1226,#EACD8B,#FBF0D8)">
+              <div class="p-[3px] rounded-t-[9.6rem] rounded-b-[1.1rem] bg-[#1a060d]">
+                <div class="relative overflow-hidden rounded-t-[9.2rem] rounded-b-[1rem] w-56 h-[19rem] md:w-60 md:h-[20rem]">
+                  <img src="./image_a012c9.png" alt="Retrato de Benita Paulina Cadeau de Fessel, fundadora y primera directora de la Casa de la Maternidad de Lima (1826)"
+                    class="w-full h-full object-cover object-top scale-105 group-hover:scale-110 transition duration-[1.2s] ease-out" loading="lazy"
+                    onerror="this.style.display='none';document.getElementById('retratoFallback').style.display='grid';" />
+                  <!-- Fallback si aún no se copió la imagen -->
+                  <div id="retratoFallback" style="display:none" class="absolute inset-0 place-items-center">
+                    <div class="absolute inset-0 grid place-items-center" style="background:radial-gradient(circle at 35% 30%,#FFF3D6,#D4AF6A 55%,#7A1226)">
+                      <svg width="56" height="56" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.4" stroke="#4A0A16" stroke-width="1.6"/><path d="M5 20c1.2-3.4 3.9-5 7-5s5.8 1.6 7 5" stroke="#4A0A16" stroke-width="1.6" stroke-linecap="round"/></svg>
+                    </div>
+                  </div>
+                  <!-- Velo cinematográfico + brillo superior -->
+                  <div class="absolute inset-0 pointer-events-none" style="background:linear-gradient(180deg,rgba(255,240,200,.18) 0%,transparent 28%,transparent 72%,rgba(26,6,13,.55) 100%)"></div>
+                  <div class="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition duration-700" style="background:linear-gradient(105deg,transparent 40%,rgba(255,246,222,.35) 50%,transparent 60%)"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Placa museo glassmorphism flotante -->
+            <figcaption class="absolute -bottom-5 left-1/2 -translate-x-1/2 max-w-[92%] text-center glass-oro rounded-full px-4 sm:px-5 py-2 shadow-2xl backdrop-blur-xl border border-dorado-400/50">
+              <span class="font-serif italic text-[13px] sm:text-sm text-dorado-100">Retrato · restaurado a color</span>
+            </figcaption>
+            <!-- Sello circular giratorio -->
+            <span class="hidden md:grid absolute -right-7 top-8 w-16 h-16 place-items-center rounded-full text-[9px] font-bold tracking-[.15em] text-dorado-200 bg-black/45 border border-dorado-500/50 backdrop-blur" style="animation:spinLento 16s linear infinite; border-style:dashed">✦ 200 AÑOS ✦</span>
+          </figure>
+          <div class="sombra-suelo !bottom-0"></div>
+        </div>
+        <div class="p-6 md:p-7 pt-8 text-center relative z-10">
+          <p class="font-script text-3xl text-dorado-200">Benita Paulina</p>
+          <h3 class="font-serif text-2xl font-bold -mt-1">Cadeau de Fessel</h3>
+          <p class="text-[11px] tracking-[.28em] text-dorado-300 mt-2">OBSTETRA FRANCESA · FUNDADORA Y DIRECTORA</p>
+          <p class="text-white/70 text-sm leading-relaxed mt-4 font-light">Trae la ciencia europea del parto y la pone al servicio de las <strong class="text-white">mujeres de bajos recursos</strong>. Su misión: que ninguna madre pobre dé a luz sin socorro, higiene ni saber.</p>
+          <div class="mt-5 inline-flex items-center gap-2 text-xs font-bold tracking-[.2em] bg-gradient-to-b from-dorado-200 to-dorado-500 text-vino-950 rounded-full px-5 py-2.5 shadow-oro">MISIÓN HUMANITARIA ✦</div>
+          <p class="mt-4 text-[11px] text-white/40 italic font-light">Guarda la imagen como <code class="text-dorado-300 not-italic">image_a012c9.png</code> junto a este HTML para ver el retrato.</p>
+        </div>
+        <div class="sombra-suelo"></div>
+      </article>
+
+      <!-- Card 3 -->
+      <article data-tilt class="card-25d reveal group relative rounded-[1.6rem] overflow-hidden shadow-flotante border border-white/10 bg-gradient-to-b from-marino-700/60 to-marino-950 backdrop-blur-xl">
+        <div class="h-44 relative overflow-hidden">
+          <div class="absolute inset-0" style="background:linear-gradient(135deg,#132D57,#060D1E 65%), radial-gradient(60% 90% at 20% 20%, rgba(212,175,106,.4), transparent)"></div>
+          <span class="capa-frente absolute top-4 left-4 text-[11px] font-bold tracking-[.25em] bg-black/40 border border-white/20 rounded-full px-3 py-1.5 backdrop-blur">CASA · MATERNIDAD · LIMA</span>
+          <div class="capa-frente absolute bottom-4 left-5 flex items-center gap-3">
+            <span class="icono-linea bg-white/10 border border-white/20 text-dorado-200">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 10 12 4l8 6M6 9.5V20h12V9.5M10 20v-5h4v5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <p class="font-serif italic text-xl text-white/90">Socorrer a las más pobres</p>
+          </div>
+          <span class="absolute -bottom-7 right-2 font-serif italic text-[5.5rem] text-white/10 select-none">1826</span>
+        </div>
+        <div class="p-6 md:p-7">
+          <h3 class="capa-media font-serif text-2xl font-semibold">Una casa para nacer con dignidad</h3>
+          <p class="capa-media text-white/65 text-sm leading-relaxed mt-3 font-light">La Casa acoge gratuitamente a gestantes sin recursos, forma a las primeras parteras examinadas y sienta las bases de la salud materna: control, asepsia, acompañamiento y registro.</p>
+          <div class="mt-5 grid grid-cols-2 gap-2 text-center text-[11px] tracking-widest">
+            <span class="rounded-xl bg-white/5 border border-white/10 py-2">ACOGIDA ✦</span><span class="rounded-xl bg-white/5 border border-white/10 py-2">FORMACIÓN ✦</span>
+          </div>
+        </div>
+        <div class="sombra-suelo"></div>
+      </article>
+    </div>
+
+    <!-- Cita -->
+    <blockquote class="reveal mt-10 sm:mt-12 glass rounded-[1.4rem] sm:rounded-[1.6rem] p-6 sm:p-8 md:p-10 text-center shadow-2xl relative overflow-hidden">
+      <span class="font-serif text-dorado-500 text-5xl sm:text-6xl leading-none">“</span>
+      <p class="font-serif italic text-xl sm:text-2xl md:text-3xl leading-snug -mt-3 sm:-mt-4">Socorrer a las mujeres pobres en el trance sublime del parto<br class="hidden md:block"> es fundar la Patria desde su primer aliento.</p>
+      <cite class="block mt-4 text-[11px] sm:text-xs tracking-[.22em] sm:tracking-[.3em] text-dorado-300 not-italic">— ESPÍRITU DEL DECRETO · LIMA, 10 DE OCTUBRE DE 1826</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ============ PILARES ============ -->
+<section id="pilares" class="relative py-16 sm:py-24 md:py-32 overflow-hidden" style="background:linear-gradient(180deg,#060D1E 0%,#2B060E 50%,#060D1E 100%)">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 reveal">
+      <div>
+        <p class="chip text-dorado-400 text-xs font-bold">02 — LO QUE SOSTIENE 200 AÑOS</p>
+        <h2 class="font-serif text-3xl sm:text-4xl md:text-6xl font-semibold mt-3">Los Pilares <span class="italic text-dorado-200">de la Profesión</span></h2>
+      </div>
+      <p class="max-w-md text-white/60 font-light text-sm leading-relaxed">Cuatro fuerzas que atraviesan dos siglos intactas. Pasa el cursor —o toca— cada pilar: las tarjetas respiran en 2.5D gracias a GSAP + ScrollTrigger.</p>
+    </div>
+
+    <div id="gridPilares" class="mt-12 grid sm:grid-cols-2 xl:grid-cols-4 gap-6" style="perspective:1400px">
+      <!-- Pilar plantilla x4 -->
+      <article data-tilt data-pilar class="card-25d group rounded-[1.6rem] p-[1px] shadow-flotante" style="background:linear-gradient(160deg,rgba(212,175,106,.6),rgba(255,255,255,.08) 30%,rgba(122,18,38,.5))">
+        <div class="rounded-[1.55rem] h-full p-6 sm:p-7 bg-[#12060c]/95 backdrop-blur-xl relative overflow-hidden">
+          <div class="absolute -top-16 -right-16 w-48 h-48 rounded-full blur-3xl opacity-40 group-hover:opacity-70 transition" style="background:#962032"></div>
+          <span class="icono-linea bg-dorado-500/15 border border-dorado-500/40 text-dorado-300">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3c-4 0-7 3-7 7 0 2.4 1.2 4.2 3 5.4L4 19l3.5-.8c.8.4 1.6.5 2.4.6l2.8 2.8 1.4-1.4 2.5 2.5 1.4-1.4-2.5-2.5 1.7-1.7-2.8-2.8c.5-2.9-.6-6.4-2.4-7.3ZM9 13.5A1.8 1.8 0 1 1 9 9.9a1.8 1.8 0 0 1 0 3.6Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="9" cy="11.7" r=".9" fill="currentColor"/></svg>
+          </span>
+          <p class="mt-6 text-[11px] tracking-[.3em] text-dorado-300">PILAR I</p>
+          <h3 class="capa-frente font-serif text-3xl font-bold mt-1">El Arte</h3>
+          <p class="capa-media text-white/60 text-sm mt-3 leading-relaxed font-light">Las manos que reciben la vida. Tacto, intuición y presencia: acompañar el dolor y convertirlo en nacimiento.</p>
+          <div class="mt-6 h-1.5 rounded-full bg-white/10 overflow-hidden"><div class="barra h-full w-0 rounded-full" style="background:linear-gradient(90deg,#B83A4E,#EACD8B)"></div></div>
+          <p class="mt-3 text-xs text-white/50"><span class="numPilar font-serif text-lg text-dorado-200">0</span>% alma en cada parto</p>
+        </div>
+      </article>
+
+      <article data-tilt data-pilar class="card-25d group rounded-[1.6rem] p-[1px] shadow-flotante xl:translate-y-8" style="background:linear-gradient(160deg,rgba(212,175,106,.6),rgba(255,255,255,.08) 30%,rgba(30,62,115,.6))">
+        <div class="rounded-[1.55rem] h-full p-6 sm:p-7 bg-[#0a1024]/95 backdrop-blur-xl relative overflow-hidden">
+          <div class="absolute -top-16 -right-16 w-48 h-48 rounded-full blur-3xl opacity-40 group-hover:opacity-70 transition" style="background:#B83A4E"></div>
+          <span class="icono-linea bg-dorado-500/15 border border-dorado-500/40 text-dorado-300">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 20.5C7.2 16.6 3.5 13.3 3.5 9.6 3.5 7 5.5 5 8 5c1.6 0 3.1.8 4 2.1C13 5.8 14.4 5 16 5c2.5 0 4.5 2 4.5 4.6 0 3.7-3.7 7-8.5 10.9Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          </span>
+          <p class="mt-6 text-[11px] tracking-[.3em] text-dorado-300">PILAR II</p>
+          <h3 class="capa-frente font-serif text-3xl font-bold mt-1">El Amor</h3>
+          <p class="capa-media text-white/60 text-sm mt-3 leading-relaxed font-light">Cuidar a dos vidas a la vez exige un amor radical: escucha, paciencia y defensa incansable de la madre.</p>
+          <div class="mt-6 h-1.5 rounded-full bg-white/10 overflow-hidden"><div class="barra h-full w-0 rounded-full" style="background:linear-gradient(90deg,#D4AF6A,#ff8fa3)"></div></div>
+          <p class="mt-3 text-xs text-white/50"><span class="numPilar font-serif text-lg text-dorado-200">0</span>% corazón en cada cuidado</p>
+        </div>
+      </article>
+
+      <article data-tilt data-pilar class="card-25d group rounded-[1.6rem] p-[1px] shadow-flotante" style="background:linear-gradient(160deg,rgba(212,175,106,.7),rgba(255,255,255,.08) 30%,rgba(184,147,78,.4))">
+        <div class="rounded-[1.55rem] h-full p-6 sm:p-7 bg-[#14100a]/95 backdrop-blur-xl relative overflow-hidden">
+          <div class="absolute -top-16 -right-16 w-48 h-48 rounded-full blur-3xl opacity-50 group-hover:opacity-80 transition" style="background:#8F713A"></div>
+          <span class="icono-linea bg-dorado-500/15 border border-dorado-500/40 text-dorado-300">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M10 3h4M10 3v5.5L5.5 17a2.4 2.4 0 0 0 2.1 3.5h8.8A2.4 2.4 0 0 0 18.5 17L14 8.5V3M8 14h8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <p class="mt-6 text-[11px] tracking-[.3em] text-dorado-300">PILAR III</p>
+          <h3 class="capa-frente font-serif text-3xl font-bold mt-1">La Ciencia</h3>
+          <p class="capa-media text-white/60 text-sm mt-3 leading-relaxed font-light">De la partera examinada de 1826 a la obstetra investigadora: evidencia, tecnología y salud sexual y reproductiva.</p>
+          <div class="mt-6 h-1.5 rounded-full bg-white/10 overflow-hidden"><div class="barra h-full w-0 rounded-full" style="background:linear-gradient(90deg,#1E3E73,#EACD8B)"></div></div>
+          <p class="mt-3 text-xs text-white/50"><span class="numPilar font-serif text-lg text-dorado-200">0</span>% evidencia y rigor</p>
+        </div>
+      </article>
+
+      <article data-tilt data-pilar class="card-25d group rounded-[1.6rem] p-[1px] shadow-flotante xl:translate-y-8" style="background:linear-gradient(160deg,rgba(212,175,106,.6),rgba(255,255,255,.08) 30%,rgba(19,45,87,.7))">
+        <div class="rounded-[1.55rem] h-full p-6 sm:p-7 bg-[#081426]/95 backdrop-blur-xl relative overflow-hidden">
+          <div class="absolute -top-16 -right-16 w-48 h-48 rounded-full blur-3xl opacity-40 group-hover:opacity-70 transition" style="background:#1E3E73"></div>
+          <span class="icono-linea bg-dorado-500/15 border border-dorado-500/40 text-dorado-300">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 19c.8-3 3-4.5 5.5-4.5s4.7 1.5 5.5 4.5M16 5.5a3 3 0 0 1 0 5.6M17.5 14.7c1.7.7 2.7 2 3 4.3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+          </span>
+          <p class="mt-6 text-[11px] tracking-[.3em] text-dorado-300">PILAR IV</p>
+          <h3 class="capa-frente font-serif text-3xl font-bold mt-1">El Servicio</h3>
+          <p class="capa-media text-white/60 text-sm mt-3 leading-relaxed font-light">A la comunidad peruana: costa, sierra y selva. Donde hay una gestante vulnerable, hay una obstetra.</p>
+          <div class="mt-6 h-1.5 rounded-full bg-white/10 overflow-hidden"><div class="barra h-full w-0 rounded-full" style="background:linear-gradient(90deg,#28c840,#EACD8B)"></div></div>
+          <p class="mt-3 text-xs text-white/50"><span class="numPilar font-serif text-lg text-dorado-200">0</span>% entrega al Perú</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LÍNEA DE TIEMPO ============ -->
+<section id="linea" class="relative py-16 sm:py-24 md:py-32 grano overflow-hidden" style="background:linear-gradient(180deg,#060D1E,#0B1E3B 55%,#2B060E)">
+  <div class="max-w-6xl mx-auto px-5 md:px-8">
+    <div class="text-center reveal">
+      <p class="chip text-dorado-400 text-xs font-bold">03 — 1826 → 2026</p>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-6xl font-semibold mt-3">Línea de Tiempo <span class="texto-oro-grad font-bold">del Bicentenario</span></h2>
+      <p class="text-white/60 mt-4 font-light">Un recorrido visual animado con parallax. La línea dorada avanza contigo al hacer scroll.</p>
+    </div>
+
+    <div id="contLinea" class="linea-tiempo relative mt-16 space-y-10 md:space-y-0">
+      <div id="progresoLinea" style="height:0"></div>
+
+      <!-- Hito -->
+      <div class="hito relative md:grid md:grid-cols-2 md:gap-14 md:pb-14 pl-12 md:pl-0">
+        <span class="dot absolute left-[11px] md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-dorado-400 shadow-oro ring-4 ring-dorado-500/20"></span>
+        <div class="md:text-right md:pr-2 reveal-t"><p class="font-serif text-4xl sm:text-5xl md:text-6xl font-bold texto-oro-grad">1826</p><p class="text-[11px] tracking-[.3em] text-dorado-300 mt-1">10 DE OCTUBRE</p></div>
+        <div class="glass rounded-2xl p-6 mt-3 md:mt-0 shadow-2xl reveal-t"><h4 class="font-serif text-2xl font-semibold">Casa de la Maternidad + Decreto N° 110</h4><p class="text-sm text-white/65 mt-2 font-light leading-relaxed">Santa Cruz funda la Maternidad de Lima. Benita Paulina Cadeau de Fessel asume la dirección y abre la primera escuela de partos del país.</p><span class="inline-block mt-3 text-xs font-bold tracking-widest bg-dorado-500/15 border border-dorado-500/40 text-dorado-200 rounded-full px-3 py-1">ORIGEN ✦</span></div>
+      </div>
+
+      <div class="hito relative md:grid md:grid-cols-2 md:gap-14 md:pb-14 pl-12 md:pl-0">
+        <span class="dot absolute left-[11px] md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-vino-500 ring-4 ring-white/10"></span>
+        <div class="md:order-2 reveal-t"><p class="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-white/90">1830<span class="text-dorado-400 text-3xl">s</span></p><p class="text-[11px] tracking-[.3em] text-dorado-300 mt-1">ESCUELA DE PARTOS</p></div>
+        <div class="glass rounded-2xl p-6 mt-3 md:mt-0 md:text-right shadow-2xl reveal-t md:order-1"><h4 class="font-serif text-2xl font-semibold">Las primeras parteras examinadas</h4><p class="text-sm text-white/65 mt-2 font-light leading-relaxed">Exámenes, higiene y práctica clínica. El saber deja de transmitirse solo de boca en boca: se vuelve profesión.</p></div>
+      </div>
+
+      <div class="hito relative md:grid md:grid-cols-2 md:gap-14 md:pb-14 pl-12 md:pl-0">
+        <span class="dot absolute left-[11px] md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-white ring-4 ring-dorado-500/30"></span>
+        <div class="md:text-right md:pr-2 reveal-t"><p class="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-white/90">1900<span class="text-dorado-400 text-3xl">s</span></p><p class="text-[11px] tracking-[.3em] text-dorado-300 mt-1">CIENCIA Y ASEPSIA</p></div>
+        <div class="glass rounded-2xl p-6 mt-3 md:mt-0 shadow-2xl reveal-t"><h4 class="font-serif text-2xl font-semibold">Obstetricia moderna</h4><p class="text-sm text-white/65 mt-2 font-light leading-relaxed">Antisepsia, control prenatal y expansión a hospitales y maternidades en todo el territorio nacional.</p></div>
+      </div>
+
+      <div class="hito relative md:grid md:grid-cols-2 md:gap-14 md:pb-14 pl-12 md:pl-0">
+        <span class="dot absolute left-[11px] md:left-1/2 md:-translate-x-1/2 top-1 w-4 h-4 rounded-full bg-dorado-400 shadow-oro ring-4 ring-dorado-500/20"></span>
+        <div class="md:order-2 reveal-t"><p class="font-serif text-4xl sm:text-5xl md:text-6xl font-bold texto-oro-grad">1981</p><p class="text-[11px] tracking-[.3em] text-dorado-300 mt-1">LEY · COLEGIO PROFESIONAL</p></div>
+        <div class="glass rounded-2xl p-6 mt-3 md:mt-0 md:text-right shadow-2xl reveal-t md:order-1"><h4 class="font-serif text-2xl font-semibold">Reconocimiento pleno</h4><p class="text-sm text-white/65 mt-2 font-light leading-relaxed">Ley de creación del Colegio de Obstetras del Perú. Autonomía científica, ética y gremial: la profesión habla con voz propia.</p><span class="inline-block mt-3 text-xs font-bold tracking-widest bg-vino-700 border border-dorado-500/40 rounded-full px-3 py-1">10 OCT · DÍA NACIONAL</span></div>
+      </div>
+
+      <div class="hito relative md:grid md:grid-cols-2 md:gap-14 md:pb-6 pl-12 md:pl-0">
+        <span class="dot absolute left-[11px] md:left-1/2 md:-translate-x-1/2 top-1 w-5 h-5 rounded-full bg-gradient-to-b from-dorado-200 to-dorado-600 shadow-oro ring-8 ring-dorado-500/20" style="animation:latido 2s infinite"></span>
+        <div class="md:text-right md:pr-2 reveal-t"><p class="font-serif text-5xl sm:text-6xl md:text-7xl font-bold texto-oro-grad">2026</p><p class="text-[11px] tracking-[.3em] text-dorado-200 mt-1">BICENTENARIO · HOY</p></div>
+        <div class="rounded-2xl p-6 mt-3 md:mt-0 shadow-flotante border border-dorado-500/50 reveal-t" style="background:linear-gradient(135deg,#4A0A16,#0A1931)">
+          <h4 class="font-serif text-2xl font-semibold">La obstetra del siglo XXI</h4>
+          <p class="text-sm text-white/70 mt-2 font-light leading-relaxed">Primera línea en salud materna, salud sexual y reproductiva, ecografía, psicoprofilaxis, emergencias obstétricas y salud comunitaria — de la costa a la Amazonía.</p>
+          <a href="#homenaje" class="btn-3d inline-flex mt-4 rounded-xl px-5 py-2.5 text-sm font-bold bg-gradient-to-b from-dorado-100 to-dorado-500 text-vino-950">Rendir homenaje ✦</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUIZ BICENTENARIO ============ -->
+<section id="quiz" class="relative py-16 sm:py-24 overflow-hidden" style="background:linear-gradient(180deg,#2B060E,#060D1E)">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 md:px-8">
+    <div class="text-center reveal">
+      <p class="chip text-dorado-400 text-xs font-bold">¿CUÁNTO SABES DE TU HISTORIA?</p>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold mt-3">Quiz del <span class="texto-oro-grad font-bold">Bicentenario</span></h2>
+      <p class="text-white/60 mt-4 font-light text-[15px] sm:text-base">3 preguntas · 1 minuto · comparte tu resultado con tus colegas.</p>
+    </div>
+
+    <div class="reveal mt-8 flex items-center gap-3 text-xs sm:text-sm">
+      <span id="quizPaso" class="font-semibold tracking-[.18em] text-dorado-300 whitespace-nowrap">PREGUNTA 1 DE 3</span>
+      <div class="flex-1 h-[3px] rounded-full bg-white/10 overflow-hidden">
+        <div id="quizBarra" class="h-full w-0 rounded-full transition-all duration-500" style="background:linear-gradient(90deg,#B83A4E,#EACD8B)"></div>
+      </div>
+    </div>
+
+    <div class="reveal relative rounded-[1.4rem] sm:rounded-[1.6rem] overflow-hidden shadow-flotante border border-white/10 bg-white/[.04] backdrop-blur-xl mt-5 scroll-mt-28" id="quizTarjeta">
+      <div class="h-1" style="background:linear-gradient(90deg,transparent,#EACD8B,transparent)"></div>
+      <div class="p-6 sm:p-8 md:p-10">
+        <div id="quizJuego">
+          <h3 id="quizPregunta" class="font-serif text-xl sm:text-2xl font-semibold leading-snug min-h-[3.5rem]">—</h3>
+          <div id="quizOpciones" class="mt-6 space-y-3" role="group" aria-label="Opciones de respuesta"></div>
+          <p id="quizFeed" aria-live="polite" class="hidden mt-5 rounded-xl px-4 py-3 text-sm leading-relaxed"></p>
+        </div>
+        <div id="quizResultado" class="hidden text-center">
+          <p class="text-[11px] tracking-[.28em] text-dorado-300 font-bold">TU RESULTADO</p>
+          <p class="font-serif font-bold leading-none mt-3"><span id="quizPuntos" class="texto-oro-grad text-6xl sm:text-7xl">0/3</span></p>
+          <p id="quizMensaje" class="font-serif italic text-xl text-white/80 mt-4">—</p>
+          <div class="mt-7 flex flex-col sm:flex-row gap-3">
+            <button type="button" id="quizCompartir" class="btn-3d flex-1 rounded-2xl px-6 py-4 font-bold bg-gradient-to-b from-dorado-100 via-dorado-400 to-dorado-600 text-vino-950 min-h-[56px] inline-flex items-center justify-center gap-2">
+              Compartir mi resultado
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button type="button" id="quizOtraVez" class="btn-3d glass rounded-2xl px-6 py-4 font-bold border border-white/20 min-h-[56px]">Intentar de nuevo</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOMENAJE / CTA FINAL ============ -->
+<section id="homenaje" class="relative py-16 sm:py-24 md:py-32 overflow-hidden grano" style="background:radial-gradient(80% 60% at 50% 0%, #7A1226, #2B060E 55%, #060D1E)">
+  <div class="max-w-5xl mx-auto px-5 md:px-8 text-center">
+    <div class="reveal inline-flex max-w-full flex-wrap justify-center items-center gap-2 glass-oro rounded-2xl px-5 py-2.5 text-[11px] sm:text-xs tracking-[.18em] sm:tracking-[.3em] text-dorado-100 text-center">10 DE OCTUBRE · DÍA NACIONAL DE LA OBSTETRA PERUANA</div>
+    <h2 class="reveal font-serif text-3xl sm:text-4xl md:text-6xl font-semibold mt-6 leading-tight">Gracias por <span class="texto-oro-grad font-bold">200 años</span><br>de <span class="italic">manos que reciben la vida.</span></h2>
+    <p class="reveal font-script text-2xl sm:text-3xl md:text-4xl text-dorado-200 mt-4">a cada obstetra del Perú, ayer, hoy y siempre</p>
+    <p class="reveal text-white/65 max-w-2xl mx-auto mt-5 font-light leading-relaxed">De Benita Paulina Cadeau de Fessel a las miles de obstetras que hoy velan por cada madre y cada recién nacido: este Bicentenario es vuestro. Que la historia que comenzó en 1826 siga latiendo en cada sala de partos del país.</p>
+
+    <div class="reveal mt-10 flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-3 sm:gap-4">
+      <a href="#inicio" class="btn-3d rounded-2xl px-8 py-4 font-bold bg-gradient-to-b from-dorado-100 via-dorado-400 to-dorado-600 text-vino-950 shadow-oro text-center min-h-[54px] flex items-center justify-center">Celebrar el Bicentenario</a>
+      <button onclick="compartir()" class="btn-3d glass rounded-2xl px-8 py-4 font-bold border border-white/20 min-h-[54px] inline-flex items-center justify-center gap-2">Compartir homenaje
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M7 17 17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+
+    <div class="reveal mt-12 grid grid-cols-2 md:grid-cols-4 gap-3 text-center">
+      <div class="glass rounded-2xl py-4"><p class="font-serif text-2xl font-bold text-dorado-300">1826</p><p class="text-[10px] tracking-[.25em] text-white/55">FUNDACIÓN</p></div>
+      <div class="glass rounded-2xl py-4"><p class="font-serif text-2xl font-bold text-dorado-300">N° 110</p><p class="text-[10px] tracking-[.25em] text-white/55">DECRETO</p></div>
+      <div class="glass rounded-2xl py-4"><p class="font-serif text-2xl font-bold text-dorado-300">10 OCT</p><p class="text-[10px] tracking-[.25em] text-white/55">DÍA NACIONAL</p></div>
+      <div class="glass rounded-2xl py-4"><p class="font-serif text-2xl font-bold text-dorado-300">2026</p><p class="text-[10px] tracking-[.25em] text-white/55">BICENTENARIO</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VOCES DEL BICENTENARIO (prueba social) ============ -->
+<!-- PERSONALIZA: reemplaza estos testimonios de muestra con casos reales antes de publicar -->
+<section id="voces" class="relative py-14 sm:py-20 overflow-hidden" style="background:linear-gradient(180deg,#0B1E3B,#060D1E)">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 md:px-8">
+    <div class="text-center reveal">
+      <p class="chip text-dorado-400 text-xs font-bold">ÚNETE A QUIENES YA CELEBRAN</p>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold mt-3">Voces del <span class="texto-oro-grad font-bold">Bicentenario</span></h2>
+      <p class="text-white/60 mt-4 font-light text-[15px] sm:text-base">Familias de todo el Perú ya registraron su beneficio conmemorativo.</p>
+    </div>
+    <div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <figure class="reveal glass rounded-2xl p-6 shadow-2xl flex flex-col">
+        <div class="tracking-[.3em] text-dorado-400 text-sm" role="img" aria-label="Calificación: 5 de 5">★★★★★</div>
+        <blockquote class="font-serif italic text-lg text-white/85 leading-snug mt-3 flex-1">"Registré el beneficio para mi mamá en menos de un minuto. El folio de confirmación me dio total confianza."</blockquote>
+        <figcaption class="mt-4 pt-4 border-t border-white/10">
+          <p class="font-semibold text-sm">Carmen R.</p>
+          <p class="text-[11px] tracking-[.2em] text-dorado-300 mt-1">LIMA · LLEGÓ POR AFICHE QR</p>
+        </figcaption>
+      </figure>
+      <figure class="reveal glass rounded-2xl p-6 shadow-2xl flex flex-col">
+        <div class="tracking-[.3em] text-dorado-400 text-sm" role="img" aria-label="Calificación: 5 de 5">★★★★★</div>
+        <blockquote class="font-serif italic text-lg text-white/85 leading-snug mt-3 flex-1">"Como obstetra, me emociona celebrar 200 años así. Regalé el beneficio a mi primera hija."</blockquote>
+        <figcaption class="mt-4 pt-4 border-t border-white/10">
+          <p class="font-semibold text-sm">Rosa M.</p>
+          <p class="text-[11px] tracking-[.2em] text-dorado-300 mt-1">AREQUIPA · LLEGÓ POR EVENTO</p>
+        </figcaption>
+      </figure>
+      <figure class="reveal glass rounded-2xl p-6 shadow-2xl flex flex-col sm:col-span-2 lg:col-span-1">
+        <div class="tracking-[.3em] text-dorado-400 text-sm" role="img" aria-label="Calificación: 5 de 5">★★★★★</div>
+        <blockquote class="font-serif italic text-lg text-white/85 leading-snug mt-3 flex-1">"El registro guarda tu avance aunque se vaya la señal. Lo completé en el camino a casa."</blockquote>
+        <figcaption class="mt-4 pt-4 border-t border-white/10">
+          <p class="font-semibold text-sm">Luis T.</p>
+          <p class="text-[11px] tracking-[.2em] text-dorado-300 mt-1">TRUJILLO · LLEGÓ POR TARJETA</p>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BENEFICIO CONMEMORATIVO (acceso QR) ============ -->
+<section id="beneficio" class="relative py-16 sm:py-24 md:py-32 grano overflow-hidden" style="background:linear-gradient(180deg,#060D1E 0%,#3a0d1c 55%,#0B1E3B 100%)">
+  <style>
+    .input-bic{ width:100%; border-radius:.9rem; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.15); padding:.95rem 1rem; font-size:1rem; line-height:1.4; color:#fff; outline:none; transition:border-color .25s, box-shadow .25s, background .25s; }
+    .input-bic::placeholder{ color:rgba(255,255,255,.32) }
+    .input-bic:focus{ border-color:#D4AF6A; box-shadow:0 0 0 3px rgba(212,175,106,.18); background:rgba(255,255,255,.07) }
+    .input-bic.campo-invalido{ border-color:rgba(248,113,113,.85); box-shadow:0 0 0 3px rgba(248,113,113,.12) }
+  </style>
+  <div class="absolute left-1/2 top-0 -translate-x-1/2 w-[640px] max-w-full h-[320px] rounded-full blur-3xl opacity-30 pointer-events-none" style="background:radial-gradient(ellipse,rgba(212,175,106,.5),transparent 70%)"></div>
+
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 md:px-8 relative">
+    <div class="text-center reveal">
+      <p class="chip text-dorado-400 text-xs font-bold">04 — ACCESO QR · BENEFICIO CONMEMORATIVO</p>
+      <h2 class="font-serif text-3xl sm:text-4xl md:text-5xl font-semibold mt-3">Reclama tu <span class="texto-oro-grad font-bold">Beneficio Conmemorativo</span></h2>
+      <p class="text-white/60 mt-4 font-light text-[15px] sm:text-base leading-relaxed max-w-xl mx-auto">Escaneaste el código QR oficial del Bicentenario. Completa los dos pasos para registrar tu beneficio: primero tus datos, luego los de la persona beneficiaria.</p>
+    </div>
+
+    <!-- Preguntas frecuentes -->
+    <!-- PERSONALIZA las respuestas con la información oficial del beneficio antes de publicar -->
+    <div class="reveal mt-10 space-y-3">
+      <details class="faq glass rounded-2xl overflow-hidden">
+        <summary class="flex items-center justify-between gap-4 px-5 sm:px-6 py-4 cursor-pointer list-none font-semibold text-[15px] sm:text-base min-h-[56px]">
+          <span>¿Qué incluye el beneficio conmemorativo?</span>
+          <span class="faq-icon font-serif text-2xl leading-none text-dorado-300 flex-none">+</span>
+        </summary>
+        <p class="px-5 sm:px-6 pb-5 text-sm text-white/65 leading-relaxed font-light">El acceso a las actividades y reconocimientos oficiales del Bicentenario de la Obstetricia Peruana. El detalle de tu beneficio se confirma por WhatsApp al completar el registro.</p>
+      </details>
+      <details class="faq glass rounded-2xl overflow-hidden">
+        <summary class="flex items-center justify-between gap-4 px-5 sm:px-6 py-4 cursor-pointer list-none font-semibold text-[15px] sm:text-base min-h-[56px]">
+          <span>¿Quién puede reclamarlo?</span>
+          <span class="faq-icon font-serif text-2xl leading-none text-dorado-300 flex-none">+</span>
+        </summary>
+        <p class="px-5 sm:px-6 pb-5 text-sm text-white/65 leading-relaxed font-light">Cualquier persona con DNI vigente que llegue desde el QR oficial. Puedes registrarlo para ti o regalarlo a la persona beneficiaria que indiques en el paso 2.</p>
+      </details>
+      <details class="faq glass rounded-2xl overflow-hidden">
+        <summary class="flex items-center justify-between gap-4 px-5 sm:px-6 py-4 cursor-pointer list-none font-semibold text-[15px] sm:text-base min-h-[56px]">
+          <span>¿Hasta cuándo puedo registrarme?</span>
+          <span class="faq-icon font-serif text-2xl leading-none text-dorado-300 flex-none">+</span>
+        </summary>
+        <p class="px-5 sm:px-6 pb-5 text-sm text-white/65 leading-relaxed font-light">El registro está abierto hasta el 31 de diciembre de 2026. Te recomendamos no esperar al cierre: completa hoy tus dos pasos.</p>
+      </details>
+      <details class="faq glass rounded-2xl overflow-hidden">
+        <summary class="flex items-center justify-between gap-4 px-5 sm:px-6 py-4 cursor-pointer list-none font-semibold text-[15px] sm:text-base min-h-[56px]">
+          <span>¿Cómo recibo la confirmación?</span>
+          <span class="faq-icon font-serif text-2xl leading-none text-dorado-300 flex-none">+</span>
+        </summary>
+        <p class="px-5 sm:px-6 pb-5 text-sm text-white/65 leading-relaxed font-light">Al confirmar verás tu folio (ej. BIC-2026-XXXX). Tómalo en captura como comprobante y envía tus datos por WhatsApp para validar el registro.</p>
+      </details>
+    </div>
+
+    <!-- Indicador de pasos -->
+    <div class="reveal mt-8 mb-5 flex items-center gap-3 sm:gap-4" aria-hidden="true">
+      <div class="flex items-center gap-2.5">
+        <span id="pasoDot1" class="grid place-items-center w-10 h-10 flex-none rounded-full text-sm font-bold bg-gradient-to-b from-dorado-200 to-dorado-600 text-vino-950 shadow-oro">1</span>
+        <span class="text-xs sm:text-sm font-semibold tracking-wide text-white">Tus datos</span>
+      </div>
+      <div class="flex-1 h-[2px] rounded-full bg-white/10 overflow-hidden">
+        <div id="fillProgreso" class="h-full w-0 rounded-full transition-all duration-500" style="background:linear-gradient(90deg,#7A1226,#D4AF6A)"></div>
+      </div>
+      <div class="flex items-center gap-2.5">
+        <span id="pasoDot2" class="grid place-items-center w-10 h-10 flex-none rounded-full text-sm font-bold bg-white/5 border border-white/20 text-white/60">2</span>
+        <span class="text-xs sm:text-sm font-semibold tracking-wide text-white/60" id="pasoLabel2">Beneficiario</span>
+      </div>
+    </div>
+
+    <!-- Tarjeta del formulario -->
+    <div class="reveal relative rounded-[1.4rem] sm:rounded-[1.6rem] overflow-hidden shadow-flotante border border-white/10 bg-white/[.04] backdrop-blur-xl scroll-mt-28" id="tarjetaBeneficio">
+      <div class="h-1" style="background:linear-gradient(90deg,transparent,#EACD8B,transparent)"></div>
+      <form id="formBeneficio" class="p-6 sm:p-8 md:p-10" novalidate>
+        <p id="formAviso" class="hidden mb-5 rounded-xl border border-red-400/40 bg-red-500/10 px-4 py-3 text-sm text-red-200" role="alert" aria-live="assertive"></p>
+        <p id="borradorAviso" class="hidden mb-5 rounded-xl border border-dorado-500/40 bg-dorado-500/10 px-4 py-3 text-sm text-dorado-100" role="status">Recuperamos tu avance: continúa donde quedaste.</p>
+
+        <!-- PASO 1 -->
+        <div id="pane1" class="pane">
+          <p class="text-[11px] tracking-[.28em] text-dorado-300 font-bold">PASO 1 DE 2 · DATOS DEL TITULAR</p>
+          <h3 class="font-serif text-2xl sm:text-3xl font-semibold mt-2">Tus datos</h3>
+
+          <div class="mt-6 space-y-5">
+            <div>
+              <label for="nombreTitular" class="block text-sm font-semibold text-white/85 mb-1.5">Nombre completo</label>
+              <input id="nombreTitular" name="nombreTitular" type="text" class="input-bic" placeholder="Ej. María Torres Quispe" autocomplete="name" enterkeyhint="next" />
+              <p class="msg-error hidden text-[13px] mt-1.5 text-red-300" id="err-nombreTitular">Ingresa tu nombre completo (mínimo 3 letras).</p>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-5">
+              <div>
+                <label for="dniTitular" class="block text-sm font-semibold text-white/85 mb-1.5">DNI</label>
+                <input id="dniTitular" name="dniTitular" type="text" class="input-bic" placeholder="8 dígitos" inputmode="numeric" autocomplete="off" maxlength="8" enterkeyhint="next" />
+                <p class="msg-error hidden text-[13px] mt-1.5 text-red-300" id="err-dniTitular">El DNI debe tener 8 dígitos numéricos.</p>
+              </div>
+              <div>
+                <label for="telTitular" class="block text-sm font-semibold text-white/85 mb-1.5">Teléfono / Celular</label>
+                <input id="telTitular" name="telTitular" type="tel" class="input-bic" placeholder="9 dígitos, empieza con 9" inputmode="numeric" autocomplete="tel" maxlength="9" enterkeyhint="next" />
+                <p class="msg-error hidden text-[13px] mt-1.5 text-red-300" id="err-telTitular">El celular debe tener 9 dígitos y empezar con 9.</p>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" id="btnSiguiente" class="btn-3d mt-8 w-full rounded-2xl px-7 py-4 font-bold bg-gradient-to-b from-dorado-100 via-dorado-400 to-dorado-600 text-vino-950 min-h-[56px] inline-flex items-center justify-center gap-2">
+            Siguiente
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+
+        <!-- PASO 2 -->
+        <div id="pane2" class="pane hidden">
+          <p class="text-[11px] tracking-[.28em] text-dorado-300 font-bold">PASO 2 DE 2 · DATOS DEL BENEFICIARIO</p>
+          <h3 class="font-serif text-2xl sm:text-3xl font-semibold mt-2">¿Para quién deseas registrar o regalar este beneficio del Bicentenario?</h3>
+          <p class="mt-2 text-sm font-medium text-dorado-200">¡Ya casi terminas! Solo falta este paso.</p>
+
+          <div class="mt-6 space-y-5">
+            <div>
+              <label for="dniBen" class="block text-sm font-semibold text-white/85 mb-1.5">DNI del beneficiario</label>
+              <input id="dniBen" name="dniBen" type="text" class="input-bic" placeholder="8 dígitos" inputmode="numeric" autocomplete="off" maxlength="8" enterkeyhint="next" />
+              <p class="msg-error hidden text-[13px] mt-1.5 text-red-300" id="err-dniBen">El DNI del beneficiario debe tener 8 dígitos numéricos.</p>
+            </div>
+            <div>
+              <label for="nombreBen" class="block text-sm font-semibold text-white/85 mb-1.5">Nombre de la persona beneficiaria</label>
+              <input id="nombreBen" name="nombreBen" type="text" class="input-bic" placeholder="Ej. Rosa Quispe Torres" autocomplete="off" enterkeyhint="done" />
+              <p class="msg-error hidden text-[13px] mt-1.5 text-red-300" id="err-nombreBen">Ingresa el nombre del beneficiario (mínimo 3 letras).</p>
+            </div>
+          </div>
+
+          <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            <button type="button" id="btnVolver" class="btn-3d glass rounded-2xl px-7 py-4 font-bold border border-white/20 sm:w-40 min-h-[56px] inline-flex items-center justify-center gap-2 order-2 sm:order-1">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M19 12H5m6 6-6-6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Volver
+            </button>
+            <button type="submit" id="btnConfirmar" class="btn-3d flex-1 rounded-2xl px-7 py-4 font-bold bg-gradient-to-b from-dorado-100 via-dorado-400 to-dorado-600 text-vino-950 min-h-[56px] inline-flex items-center justify-center gap-2 order-1 sm:order-2">
+              Confirmar y Registrar Beneficio
+            </button>
+          </div>
+        </div>
+
+        <!-- ÉXITO -->
+        <div id="paneOk" class="pane hidden text-center">
+          <div class="mx-auto w-20 h-20 rounded-full grid place-items-center shadow-oro" style="background:radial-gradient(circle at 35% 30%,#FFF3D6,#D4AF6A 60%,#8F713A)">
+            <svg width="38" height="38" viewBox="0 0 24 24" fill="none"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="#4A0A16" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="font-serif text-3xl font-semibold mt-5">Registro <span class="texto-oro-grad font-bold">exitoso</span></h3>
+          <p class="mt-3 inline-block text-xs font-bold tracking-[.25em] bg-dorado-500/15 border border-dorado-500/50 text-dorado-200 rounded-full px-4 py-1.5">FOLIO <span id="folioBen">—</span></p>
+          <p class="text-white/65 text-sm sm:text-base mt-3 font-light leading-relaxed">Toma una captura de esta pantalla: tu folio es tu comprobante. Luego envía los datos por WhatsApp para confirmar.</p>
+
+          <dl class="mt-6 text-left glass rounded-2xl p-5 sm:p-6 space-y-3 text-sm">
+            <div class="flex justify-between gap-4"><dt class="text-white/50">Titular</dt><dd class="font-semibold text-right" id="rTitular">—</dd></div>
+            <div class="flex justify-between gap-4"><dt class="text-white/50">DNI titular</dt><dd class="font-semibold" id="rDni">—</dd></div>
+            <div class="flex justify-between gap-4"><dt class="text-white/50">Celular</dt><dd class="font-semibold" id="rTel">—</dd></div>
+            <div class="h-px bg-white/10"></div>
+            <div class="flex justify-between gap-4"><dt class="text-white/50">Beneficiario</dt><dd class="font-semibold text-dorado-200 text-right" id="rBen">—</dd></div>
+            <div class="flex justify-between gap-4"><dt class="text-white/50">DNI beneficiario</dt><dd class="font-semibold text-dorado-200" id="rDniBen">—</dd></div>
+          </dl>
+
+          <a id="btnWhats" href="#" target="_blank" rel="noopener" class="btn-3d mt-6 w-full rounded-2xl px-7 py-4 font-bold bg-gradient-to-b from-[#3ddc74] to-[#1da851] text-white min-h-[56px] inline-flex items-center justify-center gap-2.5 shadow-2xl">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 2a8 8 0 1 1-4.1 14.9l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 0 1 12 4Zm-3.5 4c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.9 3 4.7 4 .6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.6-.3l-2-1c-.3-.1-.5-.2-.7 0l-.9 1.1c-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.6-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5L8.9 6.4c-.1-.3-.4-.4-.4-.4H8.5Z"/></svg>
+            Enviar datos por WhatsApp
+          </a>
+          <button type="button" id="btnOtro" class="mt-3 w-full rounded-2xl px-7 py-3.5 font-semibold text-sm text-white/60 hover:text-dorado-200 transition min-h-[48px]">Registrar otro beneficio</button>
+        </div>
+
+        <!-- REGISTRO CERRADO -->
+        <div id="paneCerrado" class="pane hidden text-center">
+          <div class="mx-auto w-20 h-20 rounded-full grid place-items-center border border-dorado-500/40 bg-white/5">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="#D4AF6A" stroke-width="1.8"/><path d="M12 7.5V12l3 2" stroke="#D4AF6A" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="font-serif text-3xl font-semibold mt-5">Registro <span class="italic text-dorado-200">finalizado</span></h3>
+          <p class="text-white/65 text-sm sm:text-base mt-3 font-light leading-relaxed">El periodo de registro del beneficio conmemorativo ha concluido. Gracias por celebrar con nosotros los 200 años de la Obstetricia Peruana.</p>
+          <a href="#inicio" class="btn-3d mt-6 inline-flex rounded-2xl px-7 py-3.5 font-bold bg-gradient-to-b from-dorado-100 via-dorado-400 to-dorado-600 text-vino-950 min-h-[54px] items-center justify-center">Volver al inicio</a>
+        </div>
+      </form>
+    </div>
+    <p class="reveal text-center text-xs text-white/35 mt-5 tracking-wide">Tus datos se usan únicamente para el registro del beneficio conmemorativo.</p>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="relative border-t border-dorado-500/20 bg-[#040913]">
+  <div class="separador-oro"></div>
+  <div class="max-w-7xl mx-auto px-5 md:px-8 py-12 grid md:grid-cols-3 gap-10">
+    <div>
+      <div class="flex items-center gap-3">
+        <span class="grid place-items-center w-10 h-10 rounded-xl bg-gradient-to-br from-vino-700 to-marino-900 border border-dorado-500/40 font-serif font-bold text-dorado-300">200</span>
+        <p class="font-serif text-xl">Bicentenario · Obstetricia Peruana</p>
+      </div>
+      <p class="text-sm text-white/50 mt-4 font-light leading-relaxed">Landing conmemorativa 1826 — 2026. Homenaje a la protección de la madre y el nacimiento, y a la fundadora Benita Paulina Cadeau de Fessel.</p>
+    </div>
+    <div class="text-sm">
+      <p class="text-xs tracking-[.3em] text-dorado-400 font-bold mb-4">RECORRIDO</p>
+      <div class="grid grid-cols-2 gap-2 text-white/60">
+        <a href="#inicio" class="hover:text-dorado-300">Inicio</a><a href="#historia" class="hover:text-dorado-300">Hito 1826</a>
+        <a href="#pilares" class="hover:text-dorado-300">Pilares</a><a href="#linea" class="hover:text-dorado-300">Línea 200 años</a>
+        <a href="#homenaje" class="hover:text-dorado-300">Homenaje</a><a href="#beneficio" class="hover:text-dorado-300">Beneficio QR</a>
+        <a href="#voces" class="hover:text-dorado-300">Voces</a><a href="#quiz" class="hover:text-dorado-300">Quiz</a>
+      </div>
+    </div>
+    <div class="text-sm">
+      <p class="text-xs tracking-[.3em] text-dorado-400 font-bold mb-4">MENSAJE INSTITUCIONAL</p>
+      <p class="font-serif italic text-lg text-white/75 leading-snug">“Cuidar el nacimiento es cuidar la Patria. ¡Feliz Bicentenario, obstetras del Perú!”</p>
+      <p class="text-[11px] tracking-[.25em] text-white/40 mt-3">10 DE OCTUBRE DE 1826 — 10 DE OCTUBRE DE 2026</p>
+    </div>
+  </div>
+  <div class="border-t border-white/10 py-5 text-center text-xs text-white/40 tracking-widest">HECHO CON RESPETO Y ADMIRACIÓN · 200 AÑOS DE HISTORIA, CIENCIA Y VIDA ✦</div>
+</footer>
+
+<!-- Barra CTA fija en móvil (zona del pulgar) -->
+<div id="barraCTA" class="fixed bottom-0 inset-x-0 z-40 md:hidden translate-y-full transition-transform duration-300 px-4 pt-2" style="padding-bottom:calc(.75rem + env(safe-area-inset-bottom)); background:linear-gradient(180deg,transparent,rgba(4,9,19,.94) 45%)">
+  <a href="#beneficio" class="btn-3d flex items-center justify-center rounded-2xl px-6 py-3.5 font-bold bg-gradient-to-b from-dorado-100 via-dorado-400 to-dorado-600 text-vino-950 shadow-oro">Reclamar mi beneficio →</a>
+</div>
+
+<!-- LIBS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+/* ---------- Marquesina ---------- */
+const items = ["200 AÑOS DE HISTORIA ✦","CIENCIA ✦","VIDA ✦","1826 — 2026 ✦","BENITA PAULINA CADEAU DE FESSEL ✦","DECRETO N° 110 ✦","10 DE OCTUBRE ✦","EL ARTE · EL AMOR · LA CIENCIA · EL SERVICIO ✦"];
+document.getElementById('marqA').innerHTML = items.map(t=>`<span class="whitespace-nowrap">${t}</span>`).join('');
+document.getElementById('marqB').innerHTML = document.getElementById('marqA').innerHTML;
+
+/* ---------- Navbar contextual móvil: se oculta al bajar, reaparece al subir ---------- */
+(function(){
+  const nav = document.getElementById('nav');
+  if(!nav) return;
+  const esMovil = ()=> window.matchMedia('(max-width:1023.5px)').matches;
+  let ultimaY = scrollY;
+  function alDesplazar(){
+    const y = scrollY;
+    nav.classList.toggle('drop-shadow-2xl', y > 60);
+    if(!esMovil() || y < 220){ nav.classList.remove('nav-oculta'); }
+    else if(y > ultimaY + 4){ nav.classList.add('nav-oculta'); }
+    else if(y < ultimaY - 4){ nav.classList.remove('nav-oculta'); }
+    ultimaY = y;
+  }
+  addEventListener('scroll', alDesplazar, { passive:true });
+  addEventListener('resize', ()=> nav.classList.remove('nav-oculta'));
+  alDesplazar();
+})();
+
+/* ---------- Canvas estrellas / polvo dorado ---------- */
+(function(){
+  const c = document.getElementById('estrellas'), ctx = c.getContext('2d');
+  let W,H,pts=[];
+  function resize(){ W=c.width=c.offsetWidth; H=c.height=c.offsetHeight;
+    const gamaBaja = (navigator.deviceMemory && navigator.deviceMemory <= 4) || (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4);
+    pts = Array.from({length: Math.min(gamaBaja ? 50 : 140, W/10)}, ()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.8+.4,s:Math.random()*.5+.15,o:Math.random()*.7+.2,oro:Math.random()>.6}));
+  }
+  resize(); addEventListener('resize', resize);
+  (function loop(){ ctx.clearRect(0,0,W,H);
+    pts.forEach(p=>{ p.y-=p.s; if(p.y<-5){p.y=H+5;p.x=Math.random()*W}
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,7);
+      ctx.fillStyle = p.oro?`rgba(212,175,106,${p.o})`:`rgba(255,255,255,${p.o*.7})`; ctx.fill(); });
+    requestAnimationFrame(loop);
+  })();
+})();
+
+/* ---------- HERO intro ---------- */
+gsap.from('[data-hero]', { y:44, opacity:0, duration:1.1, stagger:.12, ease:'power3.out', delay:.15 });
+gsap.from('#bloque3d', { y:70, opacity:0, scale:.96, duration:1.3, ease:'power3.out', delay:.4 });
+gsap.to('#gigante200', { yPercent:24, ease:'none', scrollTrigger:{ trigger:'#inicio', start:'top top', end:'bottom top', scrub:true }});
+gsap.to('#halo1', { x:90, y:-60, ease:'none', scrollTrigger:{ trigger:'#inicio', start:'top top', end:'bottom top', scrub:1 }});
+gsap.to('#halo2', { x:-90, y:80, ease:'none', scrollTrigger:{ trigger:'#inicio', start:'top top', end:'bottom top', scrub:1 }});
+gsap.to('#rueda', { y:14, repeat:-1, duration:.9, yoyo:true, ease:'power1.inOut' });
+gsap.to('[data-flota]', { y:-12, duration:2.6, stagger:{each:.4, yoyo:true, repeat:-1}, ease:'sine.inOut', yoyo:true, repeat:-1 });
+
+/* ---------- Efecto 2.5D tilt (solo puntero fino: no interfiere en táctil) ---------- */
+const punteroFino = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+document.querySelectorAll('[data-tilt]').forEach(card=>{
+  if(punteroFino){
+    const fuerza = 10;
+    card.addEventListener('mousemove', e=>{
+      const r = card.getBoundingClientRect();
+      const rx = ((e.clientY - r.top)/r.height - .5) * -fuerza;
+      const ry = ((e.clientX - r.left)/r.width - .5) * fuerza;
+      gsap.to(card, { rotateX:rx, rotateY:ry, y:-6, scale:1.015, duration:.45, ease:'power2.out', transformPerspective:1100 });
+    });
+    card.addEventListener('mouseleave', ()=> gsap.to(card,{rotateX:0,rotateY:0,y:0,scale:1,duration:.8,ease:'elastic.out(1,.55)'}));
+  }
+});
+/* Parallax por scroll: sobresalen (más sutil en móvil).
+   OJO: se excluyen los pilares, que ya tienen su propia entrada por batch;
+   dos tweens sobre el mismo y/opacity los hacían parpadear/desaparecer. */
+const esMovil = window.matchMedia('(max-width:640px)').matches;
+document.querySelectorAll('[data-tilt]:not([data-pilar])').forEach(el=>{
+  gsap.fromTo(el, { y: esMovil ? 16 : 34 }, { y: esMovil ? -8 : -14, ease:'none',
+    scrollTrigger:{ trigger:el, start:'top bottom', end:'bottom top', scrub:1.2 }});
+});
+
+/* ---------- Reveals genéricos ---------- */
+gsap.utils.toArray('.reveal').forEach(el=>{
+  gsap.from(el,{ y:50, opacity:0, duration:1, ease:'power3.out',
+    scrollTrigger:{ trigger:el, start:'top 88%' }});
+});
+gsap.utils.toArray('.reveal-t').forEach(el=>{
+  gsap.from(el,{ y:36, opacity:0, duration:.9, ease:'power3.out',
+    scrollTrigger:{ trigger:el, start:'top 90%' }});
+});
+
+/* ---------- Pilares: una sola entrada (sin .reveal para evitar doble tween) ---------- */
+const pilares = gsap.utils.toArray('[data-pilar]');
+gsap.set(pilares, { y:60, opacity:0 });
+ScrollTrigger.batch(pilares, {
+  start: 'top 88%',
+  once: true,
+  onEnter: batch => gsap.to(batch, { y:0, opacity:1, duration:.9, stagger:.12, ease:'power3.out', overwrite:'auto' })
+});
+document.querySelectorAll('[data-pilar]').forEach((p,i)=>{
+  const metas=[98,100,96,99];
+  ScrollTrigger.create({ trigger:p, start:'top 80%', once:true, onEnter:()=>{
+    gsap.to(p.querySelector('.barra'),{ width:metas[i]+'%', duration:1.6, ease:'power3.out' });
+    gsap.fromTo(p.querySelector('.numPilar'),{innerText:0},{innerText:metas[i], duration:1.6, snap:{innerText:1}});
+  }});
+});
+
+/* ---------- Contadores hero ---------- */
+document.querySelectorAll('.contador').forEach(el=>{
+  const meta=+el.dataset.meta;
+  ScrollTrigger.create({ trigger:el, start:'top 95%', once:true,
+    onEnter:()=> gsap.fromTo(el,{innerText:0},{innerText:meta,duration:1.8,snap:{innerText:1},ease:'power2.out'}) });
+});
+
+/* ---------- Línea de tiempo: progreso + dots ---------- */
+gsap.to('#progresoLinea', { height:'100%', ease:'none',
+  scrollTrigger:{ trigger:'#contLinea', start:'top 70%', end:'bottom 60%', scrub:.6 }});
+gsap.utils.toArray('.hito .dot').forEach(d=>{
+  ScrollTrigger.create({ trigger:d, start:'top 78%', onEnter:()=> gsap.fromTo(d,{scale:.4},{scale:1.35,duration:.5,ease:'back.out(3)',yoyo:true,repeat:1}) });
+});
+
+/* ---------- Pieza Hero: "El primer latido" (tacto + ritual, sin 3D de paga) ---------- */
+(function(){
+  const pieza = document.getElementById('piezaHero');
+  const btn = document.getElementById('btnLatido');
+  const corazon = document.getElementById('corazon');
+  const ondas = document.getElementById('ondas');
+  const num = document.getElementById('numLatidos');
+  const dato = document.getElementById('datoLatido');
+  const barra = document.getElementById('barraRecibir');
+  if(!pieza || !btn || !corazon) return;
+  const datos = [
+    '140 latidos por minuto: la primera banda sonora de la vida.',
+    '10 de octubre de 1826: nace la obstetricia peruana.',
+    'Benita Paulina Cadeau de Fessel: la primera en socorrer.',
+    '200 años recibiendo vidas: costa, sierra y selva.',
+    'Cada latido cuenta: gracias por cuidar el inicio de la vida.'
+  ];
+  let idx = 0, latidos = 0;
+  try{ latidos = parseInt(localStorage.getItem('bicLatidos') || '0', 10) || 0; }catch(_){}
+  num.textContent = latidos;
+  function guardar(){ try{ localStorage.setItem('bicLatidos', String(latidos)); }catch(_){} }
+  function onda(){
+    if(!ondas) return;
+    const s = document.createElement('span');
+    s.className = 'absolute left-1/2 top-1/2 w-24 h-24 -ml-12 -mt-12 rounded-full pointer-events-none';
+    s.style.border = '2px solid rgba(212,175,106,.8)';
+    ondas.appendChild(s);
+    gsap.fromTo(s, { scale:.4, opacity:.9 }, { scale:2.4, opacity:0, duration:1, ease:'power2.out', onComplete:()=> s.remove() });
+  }
+  function decir(t){
+    if(!dato) return;
+    gsap.to(dato, { opacity:0, duration:.2, overwrite:'auto', onComplete(){ dato.textContent = t; gsap.to(dato,{opacity:1,duration:.35}); } });
+  }
+  function latir(fuerte){
+    latidos++; num.textContent = latidos; guardar();
+    gsap.fromTo(corazon, { scale:1 }, { scale: fuerte ? 1.28 : 1.16, duration:.13, yoyo:true, repeat:1, transformOrigin:'center center', ease:'power2.out' });
+    onda();
+    if(latidos % 8 === 0){ idx = (idx + 1) % datos.length; decir(datos[idx]); }
+  }
+  let manteniendo = false, holdTimer = null, holdInterval = null, holdDone = false, progreso = null;
+  function limpiarHold(){
+    manteniendo = false;
+    clearTimeout(holdTimer); clearInterval(holdInterval);
+    if(progreso) progreso.kill();
+    if(barra) gsap.to(barra, { width:'0%', duration:.3, overwrite:'auto' });
+  }
+  btn.addEventListener('pointerdown', ()=>{
+    holdDone = false; manteniendo = true;
+    holdTimer = setTimeout(()=>{
+      if(!manteniendo) return;
+      holdInterval = setInterval(()=> latir(true), 200);
+      if(barra) progreso = gsap.fromTo(barra, { width:'0%' }, { width:'100%', duration:3, ease:'none', onComplete(){
+        holdDone = true; limpiarHold();
+        latidos += 10; num.textContent = latidos; guardar();
+        gsap.fromTo(pieza, { filter:'brightness(1)' }, { filter:'brightness(1.4)', duration:.25, yoyo:true, repeat:1, clearProps:'filter' });
+        decir('Has recibido 1 vida, como cada obstetra, cada día.');
+      }});
+    }, 350);
+  });
+  ['pointerup','pointerleave','pointercancel'].forEach(ev=> btn.addEventListener(ev, limpiarHold));
+  btn.addEventListener('click', ()=>{ if(!holdDone) latir(false); holdDone = false; });
+  btn.addEventListener('keydown', e=>{ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); latir(false); } });
+  /* Parallax ambiental (solo puntero fino) */
+  if(window.matchMedia('(hover:hover) and (pointer:fine)').matches){
+    pieza.addEventListener('pointermove', e=>{
+      if(manteniendo) return;
+      const r = pieza.getBoundingClientRect();
+      const dx = (e.clientX - r.left)/r.width - .5, dy = (e.clientY - r.top)/r.height - .5;
+      pieza.querySelectorAll('[data-depth]').forEach(el=>{
+        const p = parseFloat(el.dataset.depth) || .05;
+        gsap.to(el, { x: dx * p * 600, y: dy * p * 600, duration:.6, ease:'power2.out', overwrite:'auto' });
+      });
+    });
+    pieza.addEventListener('pointerleave', ()=> pieza.querySelectorAll('[data-depth]').forEach(el=> gsap.to(el,{x:0,y:0,duration:.9,ease:'elastic.out(1,.6)',overwrite:'auto'})));
+  }
+})();
+
+/* ---------- Formulario Beneficio: 2 pasos + validación + WhatsApp ---------- */
+const NUMERO_WHATSAPP = "51900000000"; // ← REEMPLAZA por tu número real (código país + número, solo dígitos)
+(function(){
+  const form = document.getElementById('formBeneficio');
+  if(!form) return;
+  const pane1 = document.getElementById('pane1'), pane2 = document.getElementById('pane2'), paneOk = document.getElementById('paneOk');
+  const aviso = document.getElementById('formAviso'), tarjeta = document.getElementById('tarjetaBeneficio');
+  const dot1 = document.getElementById('pasoDot1'), dot2 = document.getElementById('pasoDot2');
+  const label2 = document.getElementById('pasoLabel2'), fill = document.getElementById('fillProgreso');
+  const DOT_ACTIVA = ['bg-gradient-to-b','from-dorado-200','to-dorado-600','text-vino-950','shadow-oro'];
+  const DOT_IDLE = ['bg-white/5','border','border-white/20','text-white/60'];
+  let pasoActual = 1;
+  const REGISTRO_HASTA = "2026-12-31"; // ← AJUSTA la fecha de cierre del registro (AAAA-MM-DD)
+  if(new Date() > new Date(REGISTRO_HASTA + 'T23:59:59-05:00')){
+    pane1.classList.add('hidden');
+    document.getElementById('paneCerrado').classList.remove('hidden');
+    return;
+  }
+
+  const campos = {
+    nombreTitular: document.getElementById('nombreTitular'),
+    dniTitular: document.getElementById('dniTitular'),
+    telTitular: document.getElementById('telTitular'),
+    dniBen: document.getElementById('dniBen'),
+    nombreBen: document.getElementById('nombreBen')
+  };
+  ['dniTitular','dniBen'].forEach(k=> campos[k].addEventListener('input', ()=>{ campos[k].value = campos[k].value.replace(/\D/g,'').slice(0,8); limpiar(k); }));
+  campos.telTitular.addEventListener('input', ()=>{ campos.telTitular.value = campos.telTitular.value.replace(/\D/g,'').slice(0,9); limpiar('telTitular'); });
+  ['nombreTitular','nombreBen'].forEach(k=> campos[k].addEventListener('input', ()=> limpiar(k)));
+
+  /* Borrador automático: si se pierde la señal, al reabrir continúa donde quedó */
+  try{
+    const borrador = JSON.parse(localStorage.getItem('bicDraft') || '{}');
+    let hayAvance = false;
+    Object.keys(campos).forEach(k=>{ if(borrador[k]){ campos[k].value = borrador[k]; hayAvance = true; } });
+    if(hayAvance) document.getElementById('borradorAviso').classList.remove('hidden');
+  }catch(_){}
+  form.addEventListener('input', ()=>{
+    const d = {}; Object.keys(campos).forEach(k=> d[k] = campos[k].value);
+    try{ localStorage.setItem('bicDraft', JSON.stringify(d)); }catch(_){}
+  });
+
+  function limpiar(k){
+    campos[k].classList.remove('campo-invalido');
+    const m = document.getElementById('err-'+k); if(m) m.classList.add('hidden');
+  }
+  function marcar(k){
+    campos[k].classList.add('campo-invalido');
+    const m = document.getElementById('err-'+k); if(m) m.classList.remove('hidden');
+  }
+  function decir(msg){
+    if(!msg){ aviso.classList.add('hidden'); return; }
+    aviso.textContent = msg; aviso.classList.remove('hidden');
+  }
+  const esNombre = v => /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ'’.\- ]{3,80}$/.test(v.trim());
+  const esDni = v => /^\d{8}$/.test(v.trim());
+  const esCel = v => /^9\d{8}$/.test(v.trim());
+
+  function validar(lista){
+    let ok = true;
+    lista.forEach(([k, fn])=>{ limpiar(k); if(!fn(campos[k].value)){ marcar(k); ok = false; } });
+    decir(ok ? '' : 'Revisa los campos marcados para continuar.');
+    return ok;
+  }
+
+  function pintarProgreso(){
+    if(pasoActual === 1){
+      dot1.classList.add(...DOT_ACTIVA); dot1.classList.remove(...DOT_IDLE); dot1.textContent = '1';
+      dot2.classList.remove(...DOT_ACTIVA); dot2.classList.add(...DOT_IDLE); dot2.textContent = '2';
+      label2.classList.add('text-white/60'); fill.style.width = '0%';
+    } else {
+      dot1.classList.remove(...DOT_ACTIVA); dot1.classList.add(...DOT_IDLE);
+      dot1.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="#D4AF6A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      dot2.classList.add(...DOT_ACTIVA); dot2.classList.remove(...DOT_IDLE); dot2.textContent = '2';
+      label2.classList.remove('text-white/60'); label2.classList.add('text-white'); fill.style.width = '100%';
+    }
+  }
+
+  function mostrar(n){
+    const sale = pasoActual === 3 ? paneOk : (pasoActual === 1 ? pane1 : pane2);
+    const entra = n === 3 ? paneOk : (n === 1 ? pane1 : pane2);
+    pasoActual = n; decir('');
+    gsap.to(sale, { x:-28, opacity:0, duration:.28, ease:'power2.in', onComplete(){
+      sale.classList.add('hidden'); gsap.set(sale,{clearProps:'all'});
+      entra.classList.remove('hidden');
+      pintarProgreso();
+      gsap.fromTo(entra, { x:28, opacity:0 }, { x:0, opacity:1, duration:.45, ease:'power3.out', clearProps:'transform' });
+      tarjeta.scrollIntoView({ behavior:'smooth', block:'start' });
+      const f = entra.querySelector('input'); if(f) setTimeout(()=> f.focus({ preventScroll:true }), 480);
+    }});
+  }
+
+  document.getElementById('btnSiguiente').addEventListener('click', ()=>{
+    if(validar([['nombreTitular',esNombre],['dniTitular',esDni],['telTitular',esCel]])) mostrar(2);
+  });
+  document.getElementById('btnVolver').addEventListener('click', ()=> mostrar(1));
+
+  form.addEventListener('submit', e=>{
+    e.preventDefault();
+    if(!validar([['dniBen',esDni],['nombreBen',esNombre]])) return;
+    const t = {
+      nombre: campos.nombreTitular.value.trim(), dni: campos.dniTitular.value.trim(), tel: campos.telTitular.value.trim(),
+      ben: campos.nombreBen.value.trim(), dniBen: campos.dniBen.value.trim()
+    };
+    document.getElementById('rTitular').textContent = t.nombre;
+    document.getElementById('rDni').textContent = t.dni;
+    document.getElementById('rTel').textContent = t.tel;
+    document.getElementById('rBen').textContent = t.ben;
+    document.getElementById('rDniBen').textContent = t.dniBen;
+    const folio = 'BIC-2026-' + Math.random().toString(36).slice(2,6).toUpperCase();
+    document.getElementById('folioBen').textContent = folio;
+    try{ localStorage.removeItem('bicDraft'); }catch(_){}
+    const texto = 'Hola, deseo registrar mi Beneficio Conmemorativo del Bicentenario de la Obstetricia Peruana (1826-2026).\n\nTitular: ' + t.nombre + '\nDNI titular: ' + t.dni + '\nCelular: ' + t.tel + '\n\nBeneficiario: ' + t.ben + '\nDNI beneficiario: ' + t.dniBen + '\nFolio: ' + folio;
+    document.getElementById('btnWhats').href = 'https://wa.me/' + NUMERO_WHATSAPP + '?text=' + encodeURIComponent(texto);
+    mostrar(3);
+  });
+
+  document.getElementById('btnOtro').addEventListener('click', ()=>{
+    form.reset(); mostrar(1);
+  });
+})();
+
+/* ---------- Cuenta regresiva + saludo según origen QR ---------- */
+(function(){
+  const meta = new Date('2026-10-10T00:00:00-05:00').getTime();
+  const el = id => document.getElementById(id);
+  const linea = el('cuentaLinea');
+  function tick(){
+    const dif = meta - Date.now();
+    if(dif <= 0){
+      if(linea) linea.innerHTML = '<span class="text-dorado-200 font-semibold tracking-[.18em] text-[11px]">¡ESTAMOS EN EL BICENTENARIO · 10 DE OCTUBRE DE 2026!</span>';
+      return;
+    }
+    el('cdD').textContent = Math.floor(dif/864e5);
+    el('cdH').textContent = String(Math.floor(dif/36e5)%24).padStart(2,'0');
+    el('cdM').textContent = String(Math.floor(dif/6e4)%60).padStart(2,'0');
+    el('cdS').textContent = String(Math.floor(dif/1e3)%60).padStart(2,'0');
+  }
+  if(linea){ tick(); setInterval(tick, 1000); }
+  const f = new URLSearchParams(location.search).get('fuente');
+  if(f){
+    const mapa = { afiche:'AFICHE OFICIAL', tarjeta:'TARJETA CONMEMORATIVA', evento:'EVENTO DEL BICENTENARIO' };
+    const pill = el('qrOrigen');
+    if(pill){ el('qrFuente').textContent = mapa[f.toLowerCase()] || f.toUpperCase().slice(0,28); pill.classList.remove('hidden'); }
+  }
+})();
+
+/* ---------- Barra CTA fija en móvil: aparece tras el Hero, se oculta en el formulario ---------- */
+(function(){
+  const barra = document.getElementById('barraCTA');
+  const hero = document.getElementById('inicio'), ben = document.getElementById('beneficio');
+  if(!barra || !hero || !ben) return;
+  function actualizar(){
+    const pasoHero = scrollY > hero.offsetTop + hero.offsetHeight - 140;
+    const enBen = (scrollY + innerHeight) > ben.offsetTop + 120 && scrollY < ben.offsetTop + ben.offsetHeight;
+    barra.classList.toggle('translate-y-full', !(pasoHero && !enBen));
+  }
+  addEventListener('scroll', actualizar, { passive:true });
+  addEventListener('resize', actualizar);
+  actualizar();
+})();
+
+/* ---------- Quiz del Bicentenario: 3 preguntas + resultado compartible ---------- */
+(function(){
+  const preguntas = [
+    { t:'¿En qué fecha se promulgó el Decreto N° 110, origen de la obstetricia peruana?',
+      op:['28 de julio de 1821','10 de octubre de 1826','10 de octubre de 1886'], ok:1 },
+    { t:'¿Quién fue la fundadora y primera directora de la Casa de la Maternidad?',
+      op:['Juana Alarco de Dammert','María Reiche','Benita Paulina Cadeau de Fessel'], ok:2 },
+    { t:'¿Bajo qué gobierno se creó la Casa de la Maternidad de Lima?',
+      op:['Andrés de Santa Cruz','Simón Bolívar','Ramón Castilla'], ok:0 }
+  ];
+  const paso = document.getElementById('quizPaso'), barra = document.getElementById('quizBarra');
+  const pregunta = document.getElementById('quizPregunta'), opciones = document.getElementById('quizOpciones');
+  const feed = document.getElementById('quizFeed'), juego = document.getElementById('quizJuego');
+  const res = document.getElementById('quizResultado');
+  if(!pregunta || !opciones) return;
+  let idx = 0, puntos = 0, bloqueo = false;
+  const BASE_OK = ['border-dorado-500/60','bg-dorado-500/10'];
+  const BASE_NO = ['border-white/15','bg-white/5','hover:border-dorado-500/50','hover:bg-white/10'];
+
+  function pintar(idxPregunta){
+    paso.textContent = 'PREGUNTA ' + (idxPregunta + 1) + ' DE ' + preguntas.length;
+    barra.style.width = (idxPregunta / preguntas.length * 100) + '%';
+    const p = preguntas[idxPregunta];
+    pregunta.textContent = p.t;
+    feed.classList.add('hidden');
+    opciones.innerHTML = '';
+    p.op.forEach((texto, i)=>{
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'w-full text-left rounded-xl border px-4 sm:px-5 py-3.5 sm:py-4 text-[15px] sm:text-base font-medium transition min-h-[54px] ' + BASE_NO.join(' ');
+      b.innerHTML = '<span class="inline-grid place-items-center w-7 h-7 rounded-lg bg-white/10 border border-white/15 text-xs font-bold text-dorado-200 mr-3 align-middle">' + String.fromCharCode(65 + i) + '</span><span>' + texto + '</span>';
+      b.addEventListener('click', ()=> responder(i, b));
+      opciones.appendChild(b);
+    });
+    gsap.fromTo([pregunta, opciones], { x:26, opacity:0 }, { x:0, opacity:1, duration:.4, ease:'power3.out', stagger:.06, clearProps:'transform' });
+  }
+
+  function responder(i, btn){
+    if(bloqueo) return; bloqueo = true;
+    const p = preguntas[idx], acierto = (i === p.ok);
+    if(acierto) puntos++;
+    Array.from(opciones.children).forEach((b, j)=>{
+      b.disabled = true; b.classList.remove(...BASE_NO);
+      if(j === p.ok) b.classList.add(...BASE_OK, 'border');
+      else if(j === i) b.classList.add('border-red-400/60','bg-red-500/10','border');
+      else b.classList.add('border-white/10','bg-white/[.02]','border','opacity-60');
+    });
+    feed.classList.remove('hidden','border-dorado-500/50','bg-dorado-500/10','text-dorado-100','border-red-400/40','bg-red-500/10','text-red-200');
+    if(acierto){ feed.classList.add('border','border-dorado-500/50','bg-dorado-500/10','text-dorado-100'); feed.textContent = 'Correcto. Así se escribe la historia.'; }
+    else{ feed.classList.add('border','border-red-400/40','bg-red-500/10','text-red-200'); feed.textContent = 'Casi. La respuesta correcta está marcada en dorado.'; }
+    barra.style.width = ((idx + 1) / preguntas.length * 100) + '%';
+    setTimeout(()=>{
+      idx++;
+      if(idx < preguntas.length){ bloqueo = false; pintar(idx); }
+      else mostrarResultado();
+    }, 1400);
+  }
+
+  function mostrarResultado(){
+    juego.classList.add('hidden');
+    res.classList.remove('hidden');
+    paso.textContent = 'RESULTADO';
+    document.getElementById('quizPuntos').textContent = puntos + '/' + preguntas.length;
+    document.getElementById('quizMensaje').textContent =
+      puntos === 3 ? 'Memoria de oro: eres orgullo del Bicentenario.' :
+      puntos === 2 ? 'Muy bien: tu historia late fuerte.' :
+      'Buen inicio: recorre la línea de tiempo y vuelve a intentar.';
+    gsap.fromTo(res, { y:24, opacity:0 }, { y:0, opacity:1, duration:.5, ease:'power3.out', clearProps:'transform' });
+    document.getElementById('quizTarjeta').scrollIntoView({ behavior:'smooth', block:'center' });
+  }
+
+  document.getElementById('quizOtraVez').addEventListener('click', ()=>{
+    idx = 0; puntos = 0; bloqueo = false;
+    res.classList.add('hidden'); juego.classList.remove('hidden');
+    pintar(0);
+  });
+  document.getElementById('quizCompartir').addEventListener('click', ()=>{
+    const texto = 'Acerté ' + puntos + '/' + preguntas.length + ' en el Quiz del Bicentenario de la Obstetricia Peruana (1826-2026). ¿Te animas? ' + location.href.split('?')[0];
+    if(navigator.share){ navigator.share({ title:document.title, text:texto }).catch(()=>{}); }
+    else{ window.open('https://wa.me/?text=' + encodeURIComponent(texto), '_blank', 'noopener'); }
+  });
+  pintar(0);
+})();
+
+function compartir(){
+  const data={ title:document.title, text:'200 Años de Historia, Ciencia y Vida — Bicentenario de la Obstetricia en el Perú (1826-2026) ✦', url:location.href };
+  if(navigator.share){ navigator.share(data).catch(()=>{}); }
+  else{ navigator.clipboard.writeText(data.text+' '+data.url); alert('¡Enlace del homenaje copiado! Compártelo este 10 de octubre ✦'); }
+}
+</script>
+</body>
+</html>
