@@ -73,6 +73,10 @@ tailwind.config = {
   @keyframes flotar{ 0%,100%{ transform:translateY(0) } 50%{ transform:translateY(-16px) } }
   @keyframes flotar2{ 0%,100%{ transform:translateY(0) rotate(-1deg)} 50%{ transform:translateY(-26px) rotate(1.5deg)} }
   @keyframes latido{ 0%,100%{ transform:scale(1); opacity:.9 } 50%{ transform:scale(1.12); opacity:1 } }
+  @keyframes empujar{ 0%,100%{ transform:translateX(-7px); opacity:.65 } 50%{ transform:translateX(7px); opacity:1 } }
+  .hint-drag{ animation:empujar 1.7s ease-in-out infinite }
+  @keyframes ondaDedo{ 0%{ transform:scale(.55); opacity:.9 } 100%{ transform:scale(1.7); opacity:0 } }
+  .demo-onda{ animation:ondaDedo 1.4s ease-out infinite }
   @keyframes spinLento{ to{ transform:rotate(360deg)} }
   .anim-flotar{ animation:flotar 6s ease-in-out infinite }
   .anim-flotar2{ animation:flotar2 8s ease-in-out infinite }
@@ -118,7 +122,7 @@ tailwind.config = {
     #progresoLinea{ left:15px !important }
   }
   @media (prefers-reduced-motion:reduce){
-    .marquesina, .anim-flotar, .anim-flotar2{ animation:none !important }
+    .marquesina, .anim-flotar, .anim-flotar2, .hint-drag{ animation:none !important }
   }
 </style>
 </head>
@@ -648,6 +652,7 @@ tailwind.config = {
     .input-bic::placeholder{ color:rgba(255,255,255,.32) }
     .input-bic:focus{ border-color:#D4AF6A; box-shadow:0 0 0 3px rgba(212,175,106,.18); background:rgba(255,255,255,.07) }
     .input-bic.campo-invalido{ border-color:rgba(248,113,113,.85); box-shadow:0 0 0 3px rgba(248,113,113,.12) }
+    .input-bic:disabled{ opacity:.55 }
   </style>
   <div class="absolute left-1/2 top-0 -translate-x-1/2 w-[640px] max-w-full h-[320px] rounded-full blur-3xl opacity-30 pointer-events-none" style="background:radial-gradient(ellipse,rgba(212,175,106,.5),transparent 70%)"></div>
 
@@ -756,6 +761,11 @@ tailwind.config = {
           <h3 class="font-serif text-2xl sm:text-3xl font-semibold mt-2">¿Para quién deseas registrar o regalar este beneficio del Bicentenario?</h3>
           <p class="mt-2 text-sm font-medium text-dorado-200">¡Ya casi terminas! Solo falta este paso.</p>
 
+          <label for="mismoBene" class="mt-5 flex items-center gap-3 rounded-2xl border border-dorado-500/40 bg-dorado-500/10 px-4 py-3.5 cursor-pointer min-h-[56px] select-none">
+            <input id="mismoBene" type="checkbox" class="w-5 h-5 flex-none accent-[#D4AF6A]" />
+            <span class="text-sm font-semibold">Soy yo el beneficiario <span class="block text-xs font-normal text-white/55">Usa mis datos del paso 1 automáticamente</span></span>
+          </label>
+
           <div class="mt-6 space-y-5">
             <div>
               <label for="dniBen" class="block text-sm font-semibold text-white/85 mb-1.5">DNI del beneficiario</label>
@@ -792,6 +802,21 @@ tailwind.config = {
           <!-- Cupón Femisalud · logo dorado sobre oscuro -->
           <div id="cuponFemi" class="mt-6 relative rounded-2xl overflow-hidden border-2 border-dashed border-dorado-500/60 shadow-flotante" style="background:linear-gradient(135deg,#4A0A16 0%,#0A1931 100%)">
             <div class="h-1" style="background:linear-gradient(90deg,transparent,#EACD8B,transparent)"></div>
+            <p id="raspaHint" class="mt-4 flex items-center justify-center gap-2 text-[11px] sm:text-xs tracking-[.2em] text-dorado-200 font-bold">
+            <span class="hint-drag inline-block">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 11V6a1.5 1.5 0 0 1 3 0v4m0-1.5a1.5 1.5 0 0 1 3 0V11m0-1a1.5 1.5 0 0 1 3 0v6c0 3-2 5.5-5.5 5.5S7 19.5 6 17.5l-1.6-3.2c-.5-1 0-2.1 1-2.5.7-.3 1.6-.1 2 .5L9 14V7.5" stroke="#EACD8B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span id="raspaTxt">RASPA AQUÍ · TU PREMIO TE ESPERA</span>
+          </p>
+          <!-- Raspa y gana: lienzo para raspar con el dedo -->
+          <canvas id="raspaCanvas" class="absolute inset-0 z-10 block h-full w-full cursor-crosshair select-none" style="touch-action:none"></canvas>
+          <!-- Dedo guía: enseña el gesto y se oculta al primer raspado -->
+          <div id="demoDedo" class="hidden absolute inset-0 z-20 pointer-events-none overflow-hidden">
+            <span id="puntaDedo" class="absolute left-1/2 top-[28%] block w-9 h-9 -ml-4 -mt-4">
+              <span class="absolute inset-0 rounded-full" style="background:radial-gradient(circle at 35% 30%,#FFF3D6,#D4AF6A 60%,#8F713A); box-shadow:0 4px 14px rgba(0,0,0,.45)"></span>
+              <span class="demo-onda absolute inset-0 rounded-full border-2 border-dorado-300"></span>
+            </span>
+          </div>
             <div class="p-6 sm:p-7">
               <img id="logoFemi" src="./logo-femisalud-blanco.png" alt="Femisalud" class="h-11 sm:h-14 w-auto mx-auto" loading="lazy" />
               <span id="logoFemiAlt" class="hidden font-script text-4xl sm:text-5xl leading-none texto-oro-grad font-bold">FemiSalud</span>
@@ -810,11 +835,12 @@ tailwind.config = {
             </div>
           </div>
 
-          <button type="button" id="btnDescargar" class="btn-3d mt-4 w-full rounded-2xl px-6 py-4 font-bold glass border border-dorado-500/50 text-dorado-100 min-h-[56px] inline-flex items-center justify-center gap-2.5">
+          <button type="button" id="btnDescargar" class="hidden btn-3d mt-4 w-full rounded-2xl px-6 py-4 font-bold glass border border-dorado-500/50 text-dorado-100 min-h-[56px] items-center justify-center gap-2.5">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 4v11m0 0 4-4m-4 4-4-4M5 20h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span id="btnDescargarTxt">Descargar cupón</span>
           </button>
           <p id="msgDescarga" class="hidden mt-2 text-xs text-center text-red-300">No pudimos generar la imagen en este dispositivo. Toma una captura del cupón como comprobante.</p>
+          <button type="button" id="btnRevelarRaspa" class="mt-2 w-full rounded-2xl px-6 py-3 font-semibold text-sm text-white/55 hover:text-dorado-200 transition min-h-[48px]">¿No puedes raspar? Toca para revelar tu premio</button>
 
           <dl class="mt-6 text-left glass rounded-2xl p-5 sm:p-6 space-y-3 text-sm">
             <div class="flex justify-between gap-4"><dt class="text-white/50">Titular</dt><dd class="font-semibold text-right" id="rTitular">—</dd></div>
@@ -830,12 +856,24 @@ tailwind.config = {
             Enviar datos por WhatsApp
           </a>
           <div class="mt-6 glass rounded-2xl p-5 sm:p-6 text-center">
-            <p class="font-semibold text-white">¿Nos ayudas con tu reseña?</p>
-            <p class="text-sm text-white/60 mt-1.5 font-light leading-relaxed">Tu comentario en Google apoya a Femisalud y al Bicentenario. Tarda menos de un minuto.</p>
-            <a id="btnReview" href="#" target="_blank" rel="noopener" class="btn-3d mt-4 w-full rounded-2xl px-6 py-3.5 font-bold bg-white text-[#14578D] min-h-[54px] inline-flex items-center justify-center gap-2.5 shadow-2xl">
-              <svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8-6.1-3.4-6.1 3.4 1.4-6.8L2.2 9.1l6.9-.8L12 2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-              Dejar mi reseña en Google
-            </a>
+            <p class="font-semibold text-white">¿Qué te pareció la atención de Femisalud?</p>
+            <p class="text-sm text-white/60 mt-1.5 font-light leading-relaxed">Escríbelo aquí: lo copiaremos por ti y abrirás Google solo para pegarlo y publicar.</p>
+            <div id="estrellasResena" class="mt-4 flex items-center justify-center gap-1.5" role="radiogroup" aria-label="Tu calificación">
+              <button type="button" class="estrella p-1.5 min-w-[44px] min-h-[44px]" data-v="1" role="radio" aria-checked="false" aria-label="1 estrella"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8-6.1-3.4-6.1 3.4 1.4-6.8L2.2 9.1l6.9-.8L12 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></button>
+              <button type="button" class="estrella p-1.5 min-w-[44px] min-h-[44px]" data-v="2" role="radio" aria-checked="false" aria-label="2 estrellas"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8-6.1-3.4-6.1 3.4 1.4-6.8L2.2 9.1l6.9-.8L12 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></button>
+              <button type="button" class="estrella p-1.5 min-w-[44px] min-h-[44px]" data-v="3" role="radio" aria-checked="false" aria-label="3 estrellas"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8-6.1-3.4-6.1 3.4 1.4-6.8L2.2 9.1l6.9-.8L12 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></button>
+              <button type="button" class="estrella p-1.5 min-w-[44px] min-h-[44px]" data-v="4" role="radio" aria-checked="false" aria-label="4 estrellas"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8-6.1-3.4-6.1 3.4 1.4-6.8L2.2 9.1l6.9-.8L12 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></button>
+              <button type="button" class="estrella p-1.5 min-w-[44px] min-h-[44px]" data-v="5" role="radio" aria-checked="false" aria-label="5 estrellas"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8-6.1-3.4-6.1 3.4 1.4-6.8L2.2 9.1l6.9-.8L12 2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></button>
+            </div>
+            <label for="resenaTexto" class="sr-only">Tu comentario sobre Femisalud</label>
+            <textarea id="resenaTexto" rows="3" maxlength="500" placeholder="Ej. La atención fue cálida y profesional, la ecografía muy clara…" class="input-bic mt-4 text-left resize-none"></textarea>
+            <p id="errResena" class="hidden text-[13px] mt-1.5 text-red-300">Cuéntanos en unas palabras cómo te atendieron (mínimo 10 caracteres).</p>
+            <button type="button" id="btnCopiarResena" class="btn-3d mt-4 w-full rounded-2xl px-6 py-4 font-bold bg-white text-[#14578D] min-h-[56px] inline-flex items-center justify-center gap-2.5 shadow-2xl">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <span id="btnCopiarResenaTxt">Copiar reseña y abrir Google</span>
+            </button>
+            <p id="msgResena" class="hidden mt-2.5 text-xs text-dorado-200">¡Texto copiado! En Google, mantén presionado el cuadro y elige Pegar.</p>
+            <a id="btnReview" href="#" target="_blank" rel="noopener" class="mt-2.5 inline-block text-xs text-white/55 hover:text-dorado-200 underline underline-offset-4">o abrir Google directamente</a>
           </div>
           <button type="button" id="btnOtro" class="mt-3 w-full rounded-2xl px-7 py-3.5 font-semibold text-sm text-white/60 hover:text-dorado-200 transition min-h-[48px]">Registrar otro beneficio</button>
         </div>
@@ -1189,9 +1227,31 @@ const GOOGLE_REVIEW_URL = "https://www.google.com/search?q=femisalud&ie=UTF-8#lr
   }
 
   document.getElementById('btnSiguiente').addEventListener('click', ()=>{
-    if(validar([['nombreTitular',esNombre],['dniTitular',esDni],['telTitular',esCel]])) mostrar(2);
+    if(!validar([['nombreTitular',esNombre],['dniTitular',esDni],['telTitular',esCel]])) return;
+    sincronizarBene();
+    mostrar(2);
   });
   document.getElementById('btnVolver').addEventListener('click', ()=> mostrar(1));
+
+  /* "Soy el propio beneficiario": copia los datos del titular y bloquea el paso 2 */
+  const mismoBene = document.getElementById('mismoBene');
+  function sincronizarBene(){
+    if(!mismoBene || !mismoBene.checked) return;
+    campos.dniBen.value = campos.dniTitular.value;
+    campos.nombreBen.value = campos.nombreTitular.value;
+    campos.dniBen.disabled = true;
+    campos.nombreBen.disabled = true;
+    limpiar('dniBen'); limpiar('nombreBen');
+  }
+  if(mismoBene) mismoBene.addEventListener('change', ()=>{
+    if(mismoBene.checked){ sincronizarBene(); }
+    else{
+      campos.dniBen.disabled = false;
+      campos.nombreBen.disabled = false;
+      campos.dniBen.value = '';
+      campos.nombreBen.value = '';
+    }
+  });
 
   form.addEventListener('submit', e=>{
     e.preventDefault();
@@ -1212,11 +1272,15 @@ const GOOGLE_REVIEW_URL = "https://www.google.com/search?q=femisalud&ie=UTF-8#lr
     try{ localStorage.removeItem('bicDraft'); }catch(_){}
     const texto = 'Hola, deseo registrar mi premio Femisalud del Bicentenario (50% de descuento en ecografía).\n\nTitular: ' + t.nombre + '\nDNI titular: ' + t.dni + '\nCelular: ' + t.tel + '\n\nBeneficiario: ' + t.ben + '\nDNI beneficiario: ' + t.dniBen + '\nFolio: ' + folio + '\nVálido hasta el 31/12/2026';
     document.getElementById('btnWhats').href = 'https://wa.me/' + NUMERO_WHATSAPP + '?text=' + encodeURIComponent(texto);
+    if(window.__resetVelo) window.__resetVelo();
     mostrar(3);
   });
 
   document.getElementById('btnOtro').addEventListener('click', ()=>{
-    form.reset(); mostrar(1);
+    form.reset();
+    campos.dniBen.disabled = false;
+    campos.nombreBen.disabled = false;
+    mostrar(1);
   });
 })();
 
@@ -1407,6 +1471,262 @@ const GOOGLE_REVIEW_URL = "https://www.google.com/search?q=femisalud&ie=UTF-8#lr
       if(msg) msg.classList.remove('hidden');
     }
     estado(false, original);
+  });
+})();
+
+/* ---------- Raspa y gana: lienzo plateado para raspar con el dedo ---------- */
+window.__resetVelo = null;
+(function(){
+  const canvas = document.getElementById('raspaCanvas');
+  const cupon = document.getElementById('cuponFemi');
+  const btnD = document.getElementById('btnDescargar');
+  const btnR = document.getElementById('btnRevelarRaspa');
+  const hint = document.getElementById('raspaHint');
+  const raspaTxt = document.getElementById('raspaTxt');
+  const demo = document.getElementById('demoDedo');
+  const punta = document.getElementById('puntaDedo');
+  if(!canvas || !cupon) return;
+  const ctx = canvas.getContext('2d', { willReadFrequently:true });
+  let descubierto = false, dibujando = false, lx = 0, ly = 0, lmx = 0, lmy = 0;
+  let movs = 0, pct = 0, polvo = 0;
+  const puedeVibrar = typeof navigator.vibrate === 'function';
+
+  function mostrarDescarga(si){
+    if(!btnD) return;
+    btnD.classList.toggle('hidden', !si);
+    btnD.classList.toggle('inline-flex', si);
+  }
+  function mostrarAyuda(si){
+    [btnR, hint].forEach(el=>{ if(el) el.classList.toggle('hidden', !si); });
+  }
+  function pintar(){
+    const r = cupon.getBoundingClientRect();
+    if(r.width < 10 || r.height < 10) return false;
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    canvas.width = Math.round(r.width * dpr);
+    canvas.height = Math.round(r.height * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.globalCompositeOperation = 'source-over';
+    const g = ctx.createLinearGradient(0, 0, r.width, r.height);
+    g.addColorStop(0, '#9a9aa4'); g.addColorStop(.5, '#cfd2d9'); g.addColorStop(1, '#83838d');
+    ctx.fillStyle = g;
+    ctx.fillRect(0, 0, r.width, r.height);
+    ctx.strokeStyle = 'rgba(255,255,255,.10)';
+    ctx.lineWidth = 10;
+    for(let x = -r.height; x < r.width + r.height; x += 34){
+      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x + r.height, r.height); ctx.stroke();
+    }
+    const cx = r.width / 2, cy = r.height / 2;
+    ctx.textAlign = 'center';
+    ctx.beginPath(); ctx.arc(cx, cy - 64, 20, 0, 7);
+    ctx.fillStyle = '#b8934e'; ctx.fill();
+    ctx.font = '800 21px "Cormorant Garamond", serif';
+    ctx.fillStyle = '#2B060E';
+    ctx.fillText('200', cx, cy - 56);
+    ctx.fillStyle = '#3c3c46';
+    ctx.font = '800 ' + Math.min(32, r.width * 0.075) + 'px Montserrat, sans-serif';
+    ctx.fillText('RASPA Y GANA', cx, cy - 6);
+    ctx.fillStyle = '#55555f';
+    ctx.font = '600 ' + Math.min(14, r.width * 0.034) + 'px Montserrat, sans-serif';
+    ctx.fillText('CUPÓN SELLADO · 200 AÑOS', cx, cy + 24);
+    pct = 0; movs = 0;
+    return true;
+  }
+  function pos(e){
+    const r = canvas.getBoundingClientRect();
+    return [e.clientX - r.left, e.clientY - r.top];
+  }
+  function trazo(x, y, presion){
+    /* Trazo continuo con interpolación cuadrática: sin cortes a toda velocidad */
+    const mx = (lx + x) / 2, my = (ly + y) / 2;
+    const dist = Math.hypot(x - lx, y - ly);
+    let ancho = 40 + Math.min(30, dist * 0.55);
+    if(presion > 0) ancho = 34 + presion * 42;
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.lineWidth = ancho; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    ctx.beginPath();
+    ctx.moveTo(lmx, lmy);
+    ctx.quadraticCurveTo(lx, ly, mx, my);
+    ctx.stroke();
+    lmx = mx; lmy = my; lx = x; ly = y;
+    return dist;
+  }
+  function chispa(x, y, fuerte){
+    /* Polvillo plateado que salta al raspar fuerte */
+    if(polvo > 36) return;
+    const r = cupon.getBoundingClientRect();
+    for(let i = 0; i < (fuerte ? 3 : 1); i++){
+      polvo++;
+      const s = document.createElement('span');
+      const t = 3 + Math.random() * 4;
+      s.style.cssText = 'position:absolute;left:' + x + 'px;top:' + y + 'px;width:' + t + 'px;height:' + (t * 0.7) + 'px;border-radius:1px;pointer-events:none;background:linear-gradient(135deg,#FBF0D8,#B8934E);z-index:20';
+      cupon.appendChild(s);
+      gsap.to(s, { x:(Math.random() - .5) * 90, y:-20 - Math.random() * 55, rotation:Math.random() * 260 - 130,
+        opacity:0, duration:.55 + Math.random() * .3, ease:'power2.out', onComplete(){ s.remove(); polvo--; } });
+    }
+    void r;
+  }
+  function fanfarria(){
+    /* Brindis sonoro al descubrir el premio (solo tras gesto del usuario) */
+    try{
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if(!AC) return;
+      const ac = new AC();
+      [[659.25, 0], [987.77, .12]].forEach(([f, t])=>{
+        const o = ac.createOscillator(), g = ac.createGain();
+        o.type = 'sine'; o.frequency.value = f;
+        g.gain.setValueAtTime(0.0001, ac.currentTime + t);
+        g.gain.exponentialRampToValueAtTime(0.22, ac.currentTime + t + .03);
+        g.gain.exponentialRampToValueAtTime(0.0001, ac.currentTime + t + .5);
+        o.connect(g); g.connect(ac.destination);
+        o.start(ac.currentTime + t); o.stop(ac.currentTime + t + .55);
+      });
+      setTimeout(()=> ac.close(), 900);
+    }catch(_){}
+  }
+  function medir(){
+    try{
+      const d = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+      let libres = 0, total = 0;
+      for(let i = 3; i < d.length; i += 80){ total++; if(d[i] < 128) libres++; }
+      pct = total ? libres / total : 0;
+    }catch(_){}
+    if(pct > 0.45) terminar();
+    else if(raspaTxt){
+      raspaTxt.textContent =
+        pct > 0.32 ? '¡YA CASI! SIGUE RASPANDO…' :
+        pct > 0.15 ? '¡BIEN! NO TE DETENGAS…' :
+        'RASPA AQUÍ · TU PREMIO TE ESPERA';
+    }
+  }
+  function terminar(){
+    if(descubierto) return; descubierto = true; dibujando = false;
+    ocultarDedo();
+    if(puedeVibrar){ try{ navigator.vibrate([25, 40, 25]); }catch(_){} }
+    fanfarria();
+    gsap.to(canvas, { opacity:0, duration:.5, ease:'power2.out',
+      onComplete(){ canvas.style.display = 'none'; } });
+    mostrarDescarga(true); mostrarAyuda(false);
+  }
+  let dedoAnim = null;
+  function dedoVisto(){
+    try{ return sessionStorage.getItem('bicDedo') === '1'; }catch(_){ return false; }
+  }
+  function mostrarDedo(){
+    if(!demo || !punta || dedoVisto()) return;
+    demo.classList.remove('hidden');
+    if(dedoAnim) dedoAnim.kill();
+    dedoAnim = gsap.timeline({ repeat:-1 });
+    dedoAnim.fromTo(punta, { x:-55, y:0, opacity:0 }, { x:-55, y:0, opacity:1, duration:.3, ease:'power1.out' })
+      .to(punta, { x:55, y:26, duration:.7, ease:'power1.inOut' })
+      .to(punta, { x:-45, y:58, duration:.7, ease:'power1.inOut' })
+      .to(punta, { x:45, y:96, duration:.7, ease:'power1.inOut' })
+      .to(punta, { opacity:0, duration:.35, ease:'power1.in' });
+  }
+  function ocultarDedo(){
+    try{ sessionStorage.setItem('bicDedo', '1'); }catch(_){}
+    if(dedoAnim){ dedoAnim.kill(); dedoAnim = null; }
+    if(demo) demo.classList.add('hidden');
+  }
+  window.__resetVelo = function(){
+    descubierto = false; dibujando = false;
+    canvas.style.display = '';
+    gsap.set(canvas, { clearProps:'all' });
+    mostrarDescarga(false); mostrarAyuda(true); mostrarDedo();
+    pintar();
+    setTimeout(()=>{ if(!descubierto) pintar(); }, 600);
+  };
+  canvas.addEventListener('pointerdown', e=>{
+    if(descubierto) return;
+    ocultarDedo();
+    e.preventDefault();
+    if(canvas.width < 10) pintar();
+    const p = pos(e); lx = p[0]; ly = p[1]; lmx = lx; lmy = ly;
+    dibujando = true; movs = 0;
+    try{ canvas.setPointerCapture(e.pointerId); }catch(_){}
+    trazo(lx + 0.1, ly + 0.1, e.pressure || 0);
+    chispa(lx, ly, false);
+  });
+  canvas.addEventListener('pointermove', e=>{
+    if(!dibujando || descubierto) return;
+    e.preventDefault();
+    const evs = (e.getCoalescedEvents && e.getCoalescedEvents().length) ? e.getCoalescedEvents() : [e];
+    evs.forEach(ev=>{
+      const p = pos(ev);
+      const d = trazo(p[0], p[1], ev.pressure || 0);
+      if(d > 14) chispa(p[0], p[1], d > 34);
+    });
+    movs++;
+    if(puedeVibrar && movs % 12 === 0){ try{ navigator.vibrate(6); }catch(_){} }
+    if(movs % 12 === 0) medir();
+  });
+  ['pointerup','pointercancel'].forEach(ev=> canvas.addEventListener(ev, ()=>{
+    dibujando = false;
+    if(!descubierto && pct > 0.2) medir();
+  }));
+  if(btnR) btnR.addEventListener('click', terminar);
+  let tR = null;
+  addEventListener('resize', ()=>{ clearTimeout(tR); tR = setTimeout(()=>{ if(!descubierto) pintar(); }, 250); });
+})();
+
+/* ---------- Mini reseña: estrellas + texto que se copia y abre Google ---------- */
+(function(){
+  const grupo = document.getElementById('estrellasResena');
+  const area = document.getElementById('resenaTexto');
+  const btn = document.getElementById('btnCopiarResena');
+  if(!grupo || !area || !btn) return;
+  let valor = 5;
+  const botones = Array.from(grupo.querySelectorAll('.estrella'));
+  function pintar(){
+    botones.forEach(b=>{
+      const v = parseInt(b.dataset.v, 10);
+      const svg = b.querySelector('svg');
+      const activo = v <= valor;
+      svg.setAttribute('fill', activo ? '#D4AF6A' : 'none');
+      b.classList.toggle('text-dorado-400', activo);
+      b.classList.toggle('text-white/35', !activo);
+      b.setAttribute('aria-checked', activo && v === valor ? 'true' : 'false');
+    });
+  }
+  botones.forEach(b=> b.addEventListener('click', ()=>{ valor = parseInt(b.dataset.v, 10); pintar(); }));
+  pintar();
+  async function copiar(texto){
+    try{ await navigator.clipboard.writeText(texto); return true; }
+    catch(_){
+      try{
+        const t = document.createElement('textarea');
+        t.value = texto; t.style.position = 'fixed'; t.style.opacity = '0';
+        document.body.appendChild(t); t.select();
+        const ok = document.execCommand('copy'); t.remove();
+        return ok;
+      }catch(_2){ return false; }
+    }
+  }
+  btn.addEventListener('click', async ()=>{
+    const err = document.getElementById('errResena');
+    const msg = document.getElementById('msgResena');
+    const texto = area.value.trim();
+    if(texto.length < 10){
+      area.classList.add('campo-invalido');
+      if(err) err.classList.remove('hidden');
+      area.focus();
+      return;
+    }
+    area.classList.remove('campo-invalido');
+    if(err) err.classList.add('hidden');
+    const ok = await copiar(texto);
+    if(msg){
+      msg.textContent = ok
+        ? '¡Texto copiado! En Google: 1) toca las estrellas, 2) mantén presionado el cuadro y elige Pegar.'
+        : 'No pudimos copiarlo: selecciona tu texto manualmente y cópialo.';
+      msg.classList.remove('hidden');
+    }
+    window.open(GOOGLE_REVIEW_URL, '_blank', 'noopener');
+  });
+  area.addEventListener('input', ()=>{
+    area.classList.remove('campo-invalido');
+    const err = document.getElementById('errResena');
+    if(err) err.classList.add('hidden');
   });
 })();
 
