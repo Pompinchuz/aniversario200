@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Bicentenario de la Obstetricia en el Perú · 1826 — 2026</title>
 <meta name="description" content="Landing conmemorativa: 200 años de Historia, Ciencia y Vida. Homenaje a la Obstetra Peruana en el Bicentenario 1826-2026." />
+<link rel="icon" type="image/png" href="./logo_femisalud.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600;700;800&family=Pinyon+Script&display=swap" rel="stylesheet">
@@ -109,6 +110,7 @@ tailwind.config = {
   .icono-linea{ width:52px; height:52px; border-radius:1rem; display:grid; place-items:center; flex:none }
   #nav{ transition:transform .35s ease }
   #nav.nav-oculta{ transform:translateY(-115%) }
+  #nav.nav-solida .glass{ background:rgba(6,13,30,.94); border-color:rgba(212,175,106,.35) }
   .faq-icon{ transition:transform .3s ease }
   .faq[open] .faq-icon{ transform:rotate(45deg) }
   /* Captura del cupón: el degradado sobre texto no existe en canvas, se usa oro sólido */
@@ -265,10 +267,10 @@ tailwind.config = {
           <span class="absolute top-[15%] left-[8%] glass rounded-full px-3 py-1.5 text-[10px] sm:text-[11px] tracking-[.2em] text-dorado-200 anim-flotar hidden sm:block" data-depth="0.12">CIENCIA</span>
           <span class="absolute top-[30%] right-[6%] glass rounded-full px-3 py-1.5 text-[10px] sm:text-[11px] tracking-[.2em] text-dorado-200 anim-flotar2 hidden sm:block" data-depth="0.1">ARTE · AMOR</span>
           <span class="absolute bottom-[26%] left-[10%] glass rounded-full px-3 py-1.5 text-[10px] sm:text-[11px] tracking-[.2em] text-dorado-200 anim-flotar2 hidden sm:block" data-depth="0.11">SERVICIO</span>
-          <p class="absolute top-3 inset-x-0 text-center text-[10px] sm:text-[11px] tracking-[.22em] text-dorado-200 pointer-events-none">LATIDOS DEL BICENTENARIO · <span id="numLatidos" class="font-serif text-base sm:text-lg font-bold">0</span></p>
-          <p id="datoLatido" aria-live="polite" class="absolute bottom-[74px] sm:bottom-[80px] inset-x-6 text-center text-xs sm:text-sm text-white/70 italic font-serif pointer-events-none">Toca el corazón: cada latido celebra una vida recibida.</p>
+          <p class="absolute top-3 inset-x-0 text-center px-2 text-[10px] sm:text-[11px] tracking-[.14em] sm:tracking-[.22em] text-dorado-200 pointer-events-none">LATIDOS DEL BICENTENARIO · <span id="numLatidos" class="font-serif text-base sm:text-lg font-bold">0</span></p>
+          <p id="datoLatido" aria-live="polite" class="absolute bottom-[88px] sm:bottom-[92px] inset-x-6 text-center text-xs sm:text-sm text-white/70 italic font-serif pointer-events-none">Toca el corazón: cada latido celebra una vida recibida.</p>
           <div class="absolute bottom-3 sm:bottom-4 inset-x-3 sm:inset-x-4 glass rounded-2xl px-4 py-2.5 sm:py-3 text-[11px] sm:text-xs pointer-events-none flex items-center justify-between gap-2">
-            <span class="text-white/70 truncate">Toca para latir · mantén 3 segundos para recibir una vida</span>
+            <span class="text-white/70 leading-snug">Toca para latir · mantén 3 segundos para recibir una vida</span>
             <span class="flex-none text-dorado-200 tracking-widest">140 LPM</span>
           </div>
         </div>
@@ -276,11 +278,11 @@ tailwind.config = {
       </div>
 
       <!-- Tarjetas flotantes sobre el 3D -->
-      <div data-flota class="capa-flotante absolute left-2 sm:-left-4 md:-left-10 top-14 sm:top-16 glass-oro rounded-2xl px-3 sm:px-4 py-2.5 sm:py-3 shadow-2xl backdrop-blur-xl max-w-[180px] sm:max-w-[210px]">
+      <div data-flota class="capa-flotante absolute left-2 sm:-left-4 md:-left-10 top-14 sm:top-16 glass-oro rounded-2xl px-3 sm:px-4 py-2.5 sm:py-3 shadow-2xl backdrop-blur-xl max-w-[180px] sm:max-w-[210px] hidden sm:block">
         <p class="font-script text-xl sm:text-2xl text-dorado-100 leading-none">Benita Paulina</p>
         <p class="text-[10px] sm:text-[11px] tracking-[.14em] sm:tracking-[.18em] mt-1 text-white/75">CADEAU DE FESSEL · FUNDADORA 1826</p>
       </div>
-      <div data-flota class="capa-flotante absolute right-2 sm:-right-3 md:-right-8 bottom-20 glass rounded-2xl px-3 sm:px-4 py-2.5 sm:py-3 shadow-2xl flex items-center gap-2.5 sm:gap-3">
+      <div data-flota class="capa-flotante absolute right-2 sm:-right-3 md:-right-8 bottom-20 glass rounded-2xl px-3 sm:px-4 py-2.5 sm:py-3 shadow-2xl hidden sm:flex items-center gap-2.5 sm:gap-3">
         <span class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl grid place-items-center bg-gradient-to-b from-dorado-200 to-dorado-600 text-vino-950 flex-none" style="animation:latido 2.2s infinite">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 20.5C7.2 16.6 3.5 13.3 3.5 9.6 3.5 7 5.5 5 8 5c1.6 0 3.1.8 4 2.1C13 5.8 14.4 5 16 5c2.5 0 4.5 2 4.5 4.6 0 3.7-3.7 7-8.5 10.9Z" fill="currentColor"/></svg>
         </span>
@@ -334,7 +336,7 @@ tailwind.config = {
         <div class="p-6 md:p-7">
           <h3 class="capa-media font-serif text-2xl font-semibold">Decreto N° 110</h3>
           <p class="capa-media text-white/65 text-sm leading-relaxed mt-3 font-light">El gobierno de <strong class="text-dorado-200">Andrés de Santa Cruz</strong> ordena la creación de la <strong class="text-white">Casa de la Maternidad</strong> y de la primera escuela de partos. Por primera vez, el Estado asume la salud de la madre como causa pública.</p>
-          <div class="mt-5 flex items-center gap-2 text-xs tracking-[.2em] text-dorado-300">LEER EL ESPÍRITU DEL DECRETO <span class="group-hover:translate-x-1 transition">→</span></div>
+          <button data-abrir-decreto class="mt-5 inline-flex items-center gap-2 text-left text-xs tracking-[.14em] sm:tracking-[.2em] text-dorado-300 hover:text-dorado-100 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-dorado-300 rounded">LEER EL ESPÍRITU DEL DECRETO <span class="group-hover:translate-x-1 transition">→</span></button>
         </div>
         <div class="sombra-suelo"></div>
       </article>
@@ -355,7 +357,7 @@ tailwind.config = {
               <div class="p-[3px] rounded-t-[9.6rem] rounded-b-[1.1rem] bg-[#1a060d]">
                 <div class="relative overflow-hidden rounded-t-[9.2rem] rounded-b-[1rem] w-56 h-[19rem] md:w-60 md:h-[20rem]">
                   <img src="./image_a012c9.png" alt="Retrato de Benita Paulina Cadeau de Fessel, fundadora y primera directora de la Casa de la Maternidad de Lima (1826)"
-                    class="w-full h-full object-cover object-top scale-105 group-hover:scale-110 transition duration-[1.2s] ease-out" loading="lazy"
+                    class="w-full h-full object-cover object-[center_30%] scale-105 group-hover:scale-110 transition duration-[1.2s] ease-out" loading="lazy"
                     onerror="this.style.display='none';document.getElementById('retratoFallback').style.display='grid';" />
                   <!-- Fallback si aún no se copió la imagen -->
                   <div id="retratoFallback" style="display:none" class="absolute inset-0 place-items-center">
@@ -384,7 +386,6 @@ tailwind.config = {
           <p class="text-[11px] tracking-[.28em] text-dorado-300 mt-2">OBSTETRA FRANCESA · FUNDADORA Y DIRECTORA</p>
           <p class="text-white/70 text-sm leading-relaxed mt-4 font-light">Trae la ciencia europea del parto y la pone al servicio de las <strong class="text-white">mujeres de bajos recursos</strong>. Su misión: que ninguna madre pobre dé a luz sin socorro, higiene ni saber.</p>
           <div class="mt-5 inline-flex items-center gap-2 text-xs font-bold tracking-[.2em] bg-gradient-to-b from-dorado-200 to-dorado-500 text-vino-950 rounded-full px-5 py-2.5 shadow-oro">MISIÓN HUMANITARIA ✦</div>
-          <p class="mt-4 text-[11px] text-white/40 italic font-light">Guarda la imagen como <code class="text-dorado-300 not-italic">image_a012c9.png</code> junto a este HTML para ver el retrato.</p>
         </div>
         <div class="sombra-suelo"></div>
       </article>
@@ -936,6 +937,34 @@ tailwind.config = {
   <a href="#beneficio" class="btn-3d flex items-center justify-center rounded-2xl px-6 py-3.5 font-bold bg-gradient-to-b from-dorado-100 via-dorado-400 to-dorado-600 text-vino-950 shadow-oro">Gana tu premio →</a>
 </div>
 
+<!-- Modal: Espíritu del Decreto N° 110 -->
+<div id="modalDecreto" class="fixed inset-0 z-[90] hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="tituloDecreto">
+  <div data-cerrar-decreto class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+  <div class="relative glass-oro rounded-3xl max-w-lg w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 shadow-2xl border border-dorado-500/40">
+    <p class="text-[10px] tracking-[.3em] text-dorado-300">10 · OCTUBRE · 1826</p>
+    <h3 id="tituloDecreto" class="font-serif text-2xl sm:text-3xl font-bold mt-2">Espíritu del Decreto N° 110</h3>
+    <div class="mt-4 space-y-4 text-sm leading-relaxed text-white/75 font-light">
+      <p>El <strong class="text-white">10 de octubre de 1826</strong>, el mariscal <strong class="text-dorado-200">Andrés de Santa Cruz</strong>, presidente del Consejo de Gobierno, firma el decreto supremo impulsado por <strong class="text-dorado-200">Hipólito Unanue</strong> que crea la <strong class="text-white">Casa de Maternidad de Lima</strong>: por primera vez, el Estado peruano asume la salud de la madre como causa pública.</p>
+      <p>Su reglamento, adaptado de la <strong class="text-white">Maternidad de París</strong>, le fija tres fines: <strong class="text-white">socorrer a las mujeres pobres en sus partos</strong>, formar parteras instruidas y hábiles, y criar y educar a los niños expósitos hasta los cinco años.</p>
+      <p>La Casa abrió sus puertas el <strong class="text-white">12 de mayo de 1830</strong> bajo la dirección de <strong class="text-dorado-200">Benita Paulina Cadeau de Fessel</strong> —la primera maternidad de América Latina— y late hoy como Instituto Nacional Materno Perinatal. Ese es el espíritu que celebramos: <strong class="text-white">ciencia al servicio de las madres</strong>.</p>
+      <p class="text-[11px] text-white/40 italic">Fuentes: Colegio Regional de Obstetras III Lima-Callao · Instituto Nacional Materno Perinatal.</p>
+    </div>
+    <button data-cerrar-decreto class="mt-6 w-full rounded-2xl px-6 py-3.5 font-bold bg-gradient-to-b from-dorado-100 via-dorado-400 to-dorado-600 text-vino-950 shadow-oro">ENTENDIDO</button>
+  </div>
+</div>
+<script>
+/* Modal Decreto: abrir/cerrar (botón, fondo, botón ENTENDIDO y tecla Escape) */
+(function(){
+  const m = document.getElementById('modalDecreto');
+  if(!m) return;
+  function abrir(){ m.classList.remove('hidden'); m.classList.add('flex'); document.body.style.overflow = 'hidden'; }
+  function cerrar(){ m.classList.add('hidden'); m.classList.remove('flex'); document.body.style.overflow = ''; }
+  document.querySelectorAll('[data-abrir-decreto]').forEach(b=> b.addEventListener('click', abrir));
+  m.querySelectorAll('[data-cerrar-decreto]').forEach(b=> b.addEventListener('click', cerrar));
+  document.addEventListener('keydown', e=>{ if(e.key === 'Escape' && !m.classList.contains('hidden')) cerrar(); });
+})();
+</script>
+
 <!-- LIBS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -957,6 +986,7 @@ document.getElementById('marqB').innerHTML = document.getElementById('marqA').in
   function alDesplazar(){
     const y = scrollY;
     nav.classList.toggle('drop-shadow-2xl', y > 60);
+    nav.classList.toggle('nav-solida', y > 60);
     if(!esMovil() || y < 220){ nav.classList.remove('nav-oculta'); }
     else if(y > ultimaY + 4){ nav.classList.add('nav-oculta'); }
     else if(y < ultimaY - 4){ nav.classList.remove('nav-oculta'); }
