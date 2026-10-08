@@ -114,6 +114,8 @@ tailwind.config = {
   /* Captura del cupón: el degradado sobre texto no existe en canvas, se usa oro sólido */
   #cuponFemi.capturando .texto-oro-grad{ background:none !important; color:#B8934E !important }
   #cuponFemi.capturando .zona-50{ padding-bottom:1.4rem !important }
+  /* Raspa y gana: el lienzo manda sobre el scroll de la página */
+  #raspaCanvas{ touch-action:none !important; overscroll-behavior:none; -webkit-user-select:none; user-select:none; -webkit-touch-callout:none }
   @media (max-width:640px){
     .chip{ letter-spacing:.16em }
     #gigante200{ font-size:52vw !important; opacity:.22 }
@@ -1490,6 +1492,12 @@ window.__resetVelo = null;
   let descubierto = false, dibujando = false, lx = 0, ly = 0, lmx = 0, lmy = 0;
   let movs = 0, pct = 0, polvo = 0;
   const puedeVibrar = typeof navigator.vibrate === 'function';
+  /* Fija la página mientras se raspa: sin esto el navegador convierte el gesto en scroll */
+  function bloquearScroll(si){
+    document.body.style.overflow = si ? 'hidden' : '';
+    document.documentElement.style.overscrollBehavior = si ? 'none' : '';
+  }
+  canvas.addEventListener('touchmove', e=>{ e.preventDefault(); }, { passive:false });
 
   function mostrarDescarga(si){
     if(!btnD) return;
@@ -1601,6 +1609,7 @@ window.__resetVelo = null;
   }
   function terminar(){
     if(descubierto) return; descubierto = true; dibujando = false;
+    bloquearScroll(false);
     ocultarDedo();
     if(puedeVibrar){ try{ navigator.vibrate([25, 40, 25]); }catch(_){} }
     fanfarria();
@@ -1639,6 +1648,7 @@ window.__resetVelo = null;
   canvas.addEventListener('pointerdown', e=>{
     if(descubierto) return;
     ocultarDedo();
+    bloquearScroll(true);
     e.preventDefault();
     if(canvas.width < 10) pintar();
     const p = pos(e); lx = p[0]; ly = p[1]; lmx = lx; lmy = ly;
@@ -1662,6 +1672,7 @@ window.__resetVelo = null;
   });
   ['pointerup','pointercancel'].forEach(ev=> canvas.addEventListener(ev, ()=>{
     dibujando = false;
+    bloquearScroll(false);
     if(!descubierto && pct > 0.2) medir();
   }));
   if(btnR) btnR.addEventListener('click', terminar);
