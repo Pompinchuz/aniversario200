@@ -1109,22 +1109,43 @@ gsap.utils.toArray('.hito .dot').forEach(d=>{
       return actx;
     }catch(_){ return null; }
   }
+  let ruidoBuf = null;
+  function bufferRuido(){
+    /* Ruido blanco reutilizable: la "textura" del golpe valvular */
+    if(ruidoBuf) return ruidoBuf;
+    const len = Math.floor(actx.sampleRate * .5);
+    ruidoBuf = actx.createBuffer(1, len, actx.sampleRate);
+    const d = ruidoBuf.getChannelData(0);
+    for(let i = 0; i < len; i++) d[i] = Math.random() * 2 - 1;
+    return ruidoBuf;
+  }
   function golpe(t, freq, vol){
+    const f = freq + (Math.random() * 4 - 2); /* micro-variación: ningún latido es idéntico */
+    /* Cuerpo grave: seno que cae rápido, sin tono sostenido */
     const o = actx.createOscillator(), g = actx.createGain();
     o.type = 'sine';
-    o.frequency.setValueAtTime(freq, t);
-    o.frequency.exponentialRampToValueAtTime(freq * .6, t + .16);
+    o.frequency.setValueAtTime(f * 1.3, t);
+    o.frequency.exponentialRampToValueAtTime(f * .55, t + .12);
     g.gain.setValueAtTime(0.0001, t);
-    g.gain.exponentialRampToValueAtTime(vol, t + .02);
-    g.gain.exponentialRampToValueAtTime(0.0001, t + .28);
+    g.gain.exponentialRampToValueAtTime(vol, t + .015);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + .22);
     o.connect(g); g.connect(actx.destination);
-    o.start(t); o.stop(t + .32);
+    o.start(t); o.stop(t + .25);
+    /* Golpe valvular: ruido pasa-bajos corto (esto sí lo reproduce el celular) */
+    const n = actx.createBufferSource(); n.buffer = bufferRuido();
+    const fl = actx.createBiquadFilter(); fl.type = 'lowpass'; fl.frequency.value = 420; fl.Q.value = .6;
+    const ng = actx.createGain();
+    ng.gain.setValueAtTime(0.0001, t);
+    ng.gain.exponentialRampToValueAtTime(vol * .55, t + .008);
+    ng.gain.exponentialRampToValueAtTime(0.0001, t + .13);
+    n.connect(fl); fl.connect(ng); ng.connect(actx.destination);
+    n.start(t); n.stop(t + .15);
   }
   function lubDub(){
     if(!audioCorazon()) return;
     const t = actx.currentTime + .01;
-    golpe(t, 62, .5);       /* lub */
-    golpe(t + .24, 50, .4); /* dub */
+    golpe(t, 58, .9);        /* lub */
+    golpe(t + .26, 50, .75); /* dub */
     ultimoLub = Date.now();
   }
   function iniciarSonido(){
