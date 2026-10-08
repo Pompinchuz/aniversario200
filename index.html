@@ -1096,7 +1096,48 @@ gsap.utils.toArray('.hito .dot').forEach(d=>{
     if(latidos % 8 === 0){ idx = (idx + 1) % datos.length; decir(datos[idx]); }
   }
   let manteniendo = false, holdTimer = null, holdInterval = null, holdDone = false, progreso = null;
+  /* Sonido de corazón sintetizado (sin archivos): lub-dub grave en loop mientras se mantiene */
+  let actx = null, latiendo = false, beatTimer = null, ultimoLub = 0;
+  function audioCorazon(){
+    try{
+      if(!actx){
+        const AC = window.AudioContext || window.webkitAudioContext;
+        if(!AC) return null;
+        actx = new AC();
+      }
+      if(actx.state === 'suspended') actx.resume();
+      return actx;
+    }catch(_){ return null; }
+  }
+  function golpe(t, freq, vol){
+    const o = actx.createOscillator(), g = actx.createGain();
+    o.type = 'sine';
+    o.frequency.setValueAtTime(freq, t);
+    o.frequency.exponentialRampToValueAtTime(freq * .6, t + .16);
+    g.gain.setValueAtTime(0.0001, t);
+    g.gain.exponentialRampToValueAtTime(vol, t + .02);
+    g.gain.exponentialRampToValueAtTime(0.0001, t + .28);
+    o.connect(g); g.connect(actx.destination);
+    o.start(t); o.stop(t + .32);
+  }
+  function lubDub(){
+    if(!audioCorazon()) return;
+    const t = actx.currentTime + .01;
+    golpe(t, 62, .5);       /* lub */
+    golpe(t + .24, 50, .4); /* dub */
+    ultimoLub = Date.now();
+  }
+  function iniciarSonido(){
+    if(latiendo) return; latiendo = true;
+    lubDub();
+    beatTimer = setInterval(()=>{ if(latiendo) lubDub(); }, 1000);
+  }
+  function detenerSonido(){
+    latiendo = false;
+    clearInterval(beatTimer);
+  }
   function limpiarHold(){
+    detenerSonido();
     manteniendo = false;
     clearTimeout(holdTimer); clearInterval(holdInterval);
     if(progreso) progreso.kill();
@@ -1104,6 +1145,7 @@ gsap.utils.toArray('.hito .dot').forEach(d=>{
   }
   btn.addEventListener('pointerdown', ()=>{
     holdDone = false; manteniendo = true;
+    iniciarSonido();
     holdTimer = setTimeout(()=>{
       if(!manteniendo) return;
       holdInterval = setInterval(()=> latir(true), 200);
@@ -1116,8 +1158,8 @@ gsap.utils.toArray('.hito .dot').forEach(d=>{
     }, 350);
   });
   ['pointerup','pointerleave','pointercancel'].forEach(ev=> btn.addEventListener(ev, limpiarHold));
-  btn.addEventListener('click', ()=>{ if(!holdDone) latir(false); holdDone = false; });
-  btn.addEventListener('keydown', e=>{ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); latir(false); } });
+  btn.addEventListener('click', ()=>{ if(!holdDone){ latir(false); if(Date.now() - ultimoLub > 800) lubDub(); } holdDone = false; });
+  btn.addEventListener('keydown', e=>{ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); latir(false); lubDub(); } });
   /* Parallax ambiental (solo puntero fino) */
   if(window.matchMedia('(hover:hover) and (pointer:fine)').matches){
     pieza.addEventListener('pointermove', e=>{
