@@ -109,6 +109,7 @@ tailwind.config = {
   .faq[open] .faq-icon{ transform:rotate(45deg) }
   /* Captura del cupón: el degradado sobre texto no existe en canvas, se usa oro sólido */
   #cuponFemi.capturando .texto-oro-grad{ background:none !important; color:#B8934E !important }
+  #cuponFemi.capturando .zona-50{ padding-bottom:1.4rem !important }
   @media (max-width:640px){
     .chip{ letter-spacing:.16em }
     #gigante200{ font-size:52vw !important; opacity:.22 }
@@ -795,7 +796,7 @@ tailwind.config = {
               <img id="logoFemi" src="./logo-femisalud-blanco.png" alt="Femisalud" class="h-11 sm:h-14 w-auto mx-auto" loading="lazy" />
               <span id="logoFemiAlt" class="hidden font-script text-4xl sm:text-5xl leading-none texto-oro-grad font-bold">FemiSalud</span>
               <p class="text-[10px] sm:text-[11px] tracking-[.28em] text-dorado-300 mt-4 font-bold">CUPÓN BICENTENARIO · 200 AÑOS</p>
-              <p class="font-serif font-bold leading-none mt-2"><span class="texto-oro-grad text-6xl sm:text-7xl">50%</span></p>
+              <p class="zona-50 font-serif font-bold leading-none mt-2"><span class="texto-oro-grad text-6xl sm:text-7xl">50%</span></p>
               <p class="font-semibold text-white mt-1">DE DESCUENTO en tu paquete de ecografía</p>
               <div class="mt-4 pt-4 border-t border-white/10 flex items-center justify-between gap-3 text-sm">
                 <span class="text-white/50">Beneficiario</span>
